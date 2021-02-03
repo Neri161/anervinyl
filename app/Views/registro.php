@@ -83,14 +83,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <textarea class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion" required></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
                         <label for="correo">Teléfono</label>
                         <input type="number" id="tel" name="tel" required class="form-control">
                     </div>

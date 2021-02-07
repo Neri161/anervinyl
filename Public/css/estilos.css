@@ -1,9 +1,9 @@
 #login{
-    margin-top: 10%;
+    margin-top: 5%;
     padding: 10px;
 }
 #formulario{
-    background-color: #5bc0de;
+    background-color: rgba(247,61,61,0.8);
     border-radius: 10px;
 }
 #contenedor{

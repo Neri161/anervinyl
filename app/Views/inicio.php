@@ -33,7 +33,6 @@
                     <div class="form-group">
                         <button class="btn-success form-control">Ingresar</button>
                     </div>
-
                 <div class="col-md-12">
                     <div class="form-group">
                         <a href="" target="_blank">¿Olvidaste tu contraseña?</a>

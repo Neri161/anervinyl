@@ -29,36 +29,36 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="apellido-paterno">Apellido Paterno: </label>
-                            <input type="text" name="paterno" id="apellido-paterno" class="form-control" placeholder="Apellido Paterno" required>
+                            <label for="paterno">Apellido Paterno: </label>
+                            <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Apellido Paterno" required>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="apellido-Materno">Apellido Materno: </label>
-                            <input type="text" name="materno" id="apellido-Materno" class="form-control" placeholder="Apellido Materno" required>
+                            <label for="materno">Apellido Materno: </label>
+                            <input type="text" name="materno" id="materno" class="form-control" placeholder="Apellido Materno" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="correo">Correo</label>
+                            <label for="correo">Correo:</label>
                             <input type="email" id="correo" name="correo" required class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required class="form-control">
+                            <label for="contrasenia">Contraseña:</label>
+                            <input type="password" id="contrasenia" name="contrasenia" required class="form-control">
                             <div class="alert alert-dismissable" role="alert">La contraseña debe contener al menos 6 caracteres</div>
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="password-2">Repetir Password</label>
-                            <input type="password" id="password-2" name="password-2" required class="form-control">
+                            <label for="contrasenia-2">Contraseña</label>
+                            <input type="password" id="contrasenia2" name="contrasenia2" required class="form-control">
                         </div>
                     </div>
                 </div>
@@ -72,6 +72,9 @@
         </div>
     </div>
 </div>
-
+<script src="../../../repo/Public/js/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../../repo/Public/js/verificacion.js"></script>
 </body>
 </html>

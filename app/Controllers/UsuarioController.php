@@ -21,11 +21,9 @@ class UsuarioController
         $usario->apellidoPaterno=$_POST["paterno"];
         $usario->apellidoMaterno=$_POST["materno"];
         $usario->correo=$_POST["correo"];
-        $usario->telefono=$_POST["tel"];
-        $usario->contrasenia=$_POST["password"];
-        $usario->fechaNacimiento=$_POST["fecha"];
+        $usario->contrasenia=$_POST["contrasenia"];
         $usario->crear();
-        require "app/Views/inicio.php";
+       // require "app/Views/inicio.php";
     }
 
 }

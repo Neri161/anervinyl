@@ -23,7 +23,7 @@ class UsuarioController
         $usario->correo=$_POST["correo"];
         $usario->contrasenia=$_POST["contrasenia"];
         $usario->crear();
-       // require "app/Views/inicio.php";
+        require "app/Views/inicio.php";
     }
 
 }

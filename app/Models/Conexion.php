@@ -1,4 +1,5 @@
 <?php
+
 namespace Models;
 
 class Conexion
@@ -8,7 +9,7 @@ class Conexion
         $host="localhost";
         $user="root";
         $pass="";
-        $db="proyecto";
+        $db="tiendamusica";
         $this->conexion=mysqli_connect($host,$user,$pass,$db);
         mysqli_query($this->conexion,"SET NAMES 'utf8'");
     }

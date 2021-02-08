@@ -19,7 +19,7 @@
                 <h2>Crear Cuenta</h2>
         </div>
         <div class="panel-body">
-            <form action="" method="post">
+            <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
                 <div class="row" id="col">
                     <div class="col-md-12">
                         <div class="form-group">

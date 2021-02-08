@@ -22,5 +22,13 @@ class Usuario extends Conexion
         $pre->bind_param("ssssss", $this->nombre, $this->apellidoPaterno, $this->apellidoMaterno, $this->correo, $this->contrasenia, $this->fecha_registro);
         $pre->execute();
     }
+    function findByEmail($email){
+        $pre = mysqli_prepare($this->conexion,"SELECT * FROM usuarios WHERE correo=?");
+        $pre->bind_param("s",$email);
+        $pre->execute();
+        $re = $pre->get_result();
+        //echo json_encode($re);
+        return $re->fetch_object(Usuario::class);
+    }
 
 }

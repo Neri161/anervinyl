@@ -6,7 +6,6 @@ $(document).ready(function (){
         var correo=$("#correo").val();
         var pass1=$("#contrasenia").val();
         var pass2=$("#contrasenia-2").val();
-
         if (nombre=="" || nombre==null){
             alert("Ingresa el Nombre");
             $("#nombre").focus();
@@ -20,31 +19,6 @@ $(document).ready(function (){
         if (apellidomaterno=="" || apellidomaterno==null){
             alert("Ingresa el Apellido Materno");
             $("#apellido-Materno").focus();
-            return false;
-        }
-        if (direccion=="" || direccion==null){
-            alert("Ingresa la Direccion");
-            $("#direccion").focus();
-            return false;
-        }
-        if (cp=="" || cp==null){
-            alert("Ingresa el cp");
-            $("#cp").focus();
-            return false;
-        }
-        if (fecha=="" || fecha==null){
-            alert("Ingresa la fecha");
-            $("#fecha").focus();
-            return false;
-        }
-        if (descripcion=="" || descripcion==null){
-            alert("Ingresa la descripcion");
-            $("#descripcion").focus();
-            return false;
-        }
-        if (telefono=="" || telefono==null){
-            alert("Ingresa el telefono");
-            $("#tel").focus();
             return false;
         }
         if (correo=="" || correo==null){

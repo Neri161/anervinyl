@@ -10,7 +10,6 @@ class Usuario extends Conexion
     public $correo;
     public $contrasenia;
     public $fecha_registro;
-
     function __construct()
     {
         parent::__construct();
@@ -22,13 +21,13 @@ class Usuario extends Conexion
         $pre->bind_param("ssssss", $this->nombre, $this->apellidoPaterno, $this->apellidoMaterno, $this->correo, $this->contrasenia, $this->fecha_registro);
         $pre->execute();
     }
-    function findByEmail($email){
-        $pre = mysqli_prepare($this->conexion,"SELECT * FROM usuarios WHERE correo=?");
-        $pre->bind_param("s",$email);
+    static function vereficarUsuario($correo,$contrasenia)
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM usuarios WHERE correo=?");
+        $pre->bind_param("s", $correo);
         $pre->execute();
-        $re = $pre->get_result();
-        //echo json_encode($re);
-        return $re->fetch_object(Usuario::class);
+        $resultado = $pre->get_result();
+        return $resultado->fetch_object();
     }
-
 }

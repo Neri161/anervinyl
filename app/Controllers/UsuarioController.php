@@ -12,9 +12,6 @@ class UsuarioController
     function registro(){
         require "app/Views/registro.php";
     }
-    function inicioSesion(){
-        require "app/Views/login.php";
-    }
     function verificarRegistro(){
         $usario = new Usuario();
         $usario->nombre=$_POST["nombre"];
@@ -23,22 +20,22 @@ class UsuarioController
         $usario->correo=$_POST["correo"];
         $usario->contrasenia=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
         $usario->crear();
-        header("location:../../../repo/app/Views/login.php");
+        header("location:../../../repo/index.php?controller=Usuario&action=login");
     }
-    public function  dologin(){
-        if (isset($_POST)){
-            $usuario = usuario::findByEmail($_POST["correo"]);
-            if ($usuario==null){
-                $_SESSION["flash"]="Usuario incorrecto";
-                header('location: /clase1?controller=Usuarios&action=login');
-            }if(password_verify($_POST["password"],$usuario->password)){
-                $_SESSION["usuario_id"]=$usuario->id;
-                header('Location:/clase1?controller=Usuarios&action=index');
-            }else{
-                $_SESSION["flash"]="Contraseña incorrecta";
-                header('location: /clase1?controller=Usuarios&action=login');
-            }
+    function login(){
+        require "app/Views/login.php";
+    }
+    function verificarCredenciales(){
+        if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
+            echo "Datos incorrectos";
+            return false;
         }
+        $correo=$_POST["correo"];
+        $contrasenia=$_POST["contrasenia"];
+        $verificar = Usuario::vereficarUsuario($correo,$contrasenia);
+        echo json_encode($verificar);
     }
+
+
 
 }

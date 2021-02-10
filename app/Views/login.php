@@ -21,14 +21,14 @@
             <h2>INICIAR SESION</h2>
         </div>
         <div class="panel-body">
-            <form action="index.php?controller=Usuario&action=dologin" method="post">
+            <form action="index.php?controller=Usuario&action=verificarCredenciales" method="post">
                 <div class="form-group">
                     <label for="">Correo</label>
                     <input type="text" name="correo" id="correo" class="form-control" placeholder="Correo" required>
                 </div>
                 <div class="form-group">
                     <label for="">Contraseña</label>
-                    <input type="password" name="contrasenia" id="contrasenia" class="form-control" required>
+                    <input type="password" name="contrasenia" id="contrasenia" class="form-control" placeholder="Contraseña" required>
                 </div>
                     <div class="form-group">
                         <button class="btn-success form-control">Ingresar</button>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <a href="registro.php" target="_blank">Crear cuenta</a>
+                        <a href="index.php?controller=Usuario&action=registro" target="_blank">Crear cuenta</a>
                     </div>
                 </div>
             </form>

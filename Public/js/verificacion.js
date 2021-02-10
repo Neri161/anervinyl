@@ -31,10 +31,5 @@ $(document).ready(function (){
             $("#password").focus();
             return false;
         }
-        if (pass1 != pass2){
-            alert("las contraseñas no son iguales");
-            $("#password").focus();
-            return false;
-        }
     });
 });

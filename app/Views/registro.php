@@ -49,7 +49,7 @@
 
                                 <?php
                                 if(isset($usuarioNoExiste)){
-                                    echo '<h5 class="alert-danger">'.$usuarioNoExiste.'</h5>';
+                                    echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
                                 }
                                 ?>
 

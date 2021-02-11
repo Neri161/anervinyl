@@ -43,7 +43,18 @@ class UsuarioController
         $correo=$_POST["correo"];
         $contrasenia=$_POST["contrasenia"];
         $verificar = Usuario::vereficarUsuario($correo,$contrasenia);
-        echo json_encode($verificar);
+        if ($verificar){
+            if (password_verify($contrasenia,$verificar->contrasenia)){
+                require 'app/Views/inicio.php';
+            }else{
+                $Contrasenia="La contraseña es incorrecta";
+                require "app/Views/login.php";
+            }
+        }else{
+                $estatus="Datos incorectos";
+                require "app/Views/login.php";
+        }
+
     }
 
 }

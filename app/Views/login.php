@@ -21,6 +21,11 @@
             <h2>INICIAR SESION</h2>
         </div>
         <div class="panel-body">
+            <?php
+            if(isset($estatus)){
+                echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';
+            }
+            ?>
             <form action="index.php?controller=Usuario&action=verificarCredenciales" method="post">
                 <div class="form-group">
                     <label for="">Correo</label>
@@ -29,6 +34,11 @@
                 <div class="form-group">
                     <label for="">Contraseña</label>
                     <input type="password" name="contrasenia" id="contrasenia" class="form-control" placeholder="Contraseña" required>
+                    <?php
+                    if(isset($Contrasenia)){
+                        echo '<h5 class="alert-danger text-center">'.$Contrasenia.'</h5>';
+                    }
+                    ?>
                 </div>
                     <div class="form-group">
                         <button class="btn-success form-control">Ingresar</button>

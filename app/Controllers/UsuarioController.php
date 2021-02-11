@@ -45,6 +45,9 @@ class UsuarioController
         $verificar = Usuario::vereficarUsuario($correo,$contrasenia);
         if ($verificar){
             if (password_verify($contrasenia,$verificar->contrasenia)){
+                session_start();
+                $_SESSION["nombre"]=$verificar->nombre;
+                $nombre=$verificar->nombre;
                 require 'app/Views/inicio.php';
             }else{
                 $Contrasenia="La contraseña es incorrecta";

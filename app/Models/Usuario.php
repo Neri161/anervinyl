@@ -24,7 +24,7 @@ class Usuario extends Conexion
     static function vereficarUsuario($correo)
     {
         $conexion = new Conexion();
-        $pre = mysqli_prepare($conexion->conexion,"SELECT correo,contrasenia FROM usuarios WHERE correo=?");
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM usuarios WHERE correo=?");
         $pre->bind_param("s", $correo);
         $pre->execute();
         $resultado = $pre->get_result();

@@ -20,6 +20,7 @@
         </div>
         <div class="panel-body">
             <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
+
                 <div class="row" id="col">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -45,13 +46,20 @@
                         <div class="form-group">
                             <label for="correo">Correo:</label>
                             <input type="email" id="correo" name="correo" required class="form-control">
+
+                                <?php
+                                if(isset($usuarioNoExiste)){
+                                    echo '<h5 class="alert-danger">'.$usuarioNoExiste.'</h5>';
+                                }
+                                ?>
+
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="contrasenia">Contraseña:</label>
                             <input type="password" id="contrasenia" name="contrasenia" required class="form-control">
-                            <div class="alert alert-dismissable" role="alert">La contraseña debe contener al menos 6 caracteres</div>
+                            <h5 class="alert-warning" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</h5>
                         </div>
                     </div>
 

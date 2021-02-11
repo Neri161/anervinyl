@@ -21,10 +21,18 @@ class Usuario extends Conexion
         $pre->bind_param("ssssss", $this->nombre, $this->apellidoPaterno, $this->apellidoMaterno, $this->correo, $this->contrasenia, $this->fecha_registro);
         $pre->execute();
     }
-    static function vereficarUsuario($correo,$contrasenia)
+    static function vereficarUsuario($correo)
     {
         $conexion = new Conexion();
-        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM usuarios WHERE correo=?");
+        $pre = mysqli_prepare($conexion->conexion,"SELECT correo,contrasenia FROM usuarios WHERE correo=?");
+        $pre->bind_param("s", $correo);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        return $resultado->fetch_object();
+    }
+    static function verificarCorreo($correo){
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT correo FROM usuarios WHERE correo=?");
         $pre->bind_param("s", $correo);
         $pre->execute();
         $resultado = $pre->get_result();

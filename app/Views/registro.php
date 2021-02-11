@@ -15,12 +15,8 @@
 <body>
 <div class="container col-md-12" id="contenedor">
     <div class="panel panel-body col-md-offset-4 col-md-4" id="formulario">
-        <div class="panel-heading text-center">
-                <h2>Crear Cuenta</h2>
-        </div>
-        <div class="panel-body">
+            <h3 class="text-center">Crear Cuenta</h3>
             <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
-
                 <div class="row" id="col">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -46,27 +42,33 @@
                         <div class="form-group">
                             <label for="correo">Correo:</label>
                             <input type="email" id="correo" name="correo" required class="form-control">
-
                                 <?php
                                 if(isset($usuarioNoExiste)){
                                     echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
                                 }
                                 ?>
-
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
+                            <?php
+                            if(isset($error_encontrado)){
+                                echo '<h5 class="alert-danger text-center">Contraseña no valida'.$error_encontrado.'</h5>';
+                            }
+                            ?>
                             <label for="contrasenia">Contraseña:</label>
-                            <input type="password" id="contrasenia" name="contrasenia" required class="form-control">
+                            <input type="password" id="contrasenia-1" name="contrasenia" required class="form-control">
+                            <span id="mensaje"></span>
                             <h5 class="alert-warning" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</h5>
+
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="contrasenia-2">Contraseña</label>
-                            <input type="password" id="contrasenia2" name="contrasenia2" required class="form-control">
+                            <input type="password" id="contrasenia-2" name="contrasenia2" required class="form-control">
+                            <span  id="mensaje-2"></span>
                         </div>
                     </div>
                 </div>
@@ -77,12 +79,12 @@
                     </div>
                 </div>
             </form>
-        </div>
     </div>
 </div>
 <script src="../../../repo/Public/js/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../../../repo/Public/js/verificacion.js"></script>
+<script src="../../../repo/Public/js/contrasenia.js"></script>
 </body>
 </html>

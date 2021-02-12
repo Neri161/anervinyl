@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
 </head>
 <body>
+
 <div class="container col-md-12" id="contenedor">
     <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
         <div class="panel panel-body col-md-12" id="formulario">
+            <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
             <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
                 <div class="row" id="col">
                     <div class="col-md-12">
@@ -59,6 +61,7 @@
                             <label for="contrasenia">Contraseña:</label>
                             <input type="password" id="contrasenia-1" name="contrasenia" required class="form-control">
                             <span id="mensaje"></span>
+                            <br>
                             <span id="alerta" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</span>
 
                         </div>

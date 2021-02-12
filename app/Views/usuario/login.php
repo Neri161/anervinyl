@@ -8,19 +8,19 @@
     <title>Iniciar Sesion</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../Public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../repo/Public/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../../../Public/css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
 </head>
 <body>
 
-<div class="container col-md-12" id="login">
-    <div class="panel panel-body col-md-offset-3 col-md-6" id="formulario">
-        <div class="panel-heading text-center">
-            <h2>INICIAR SESION</h2>
-        </div>
-        <div class="panel-body">
+<div class="container col-md-12" id="contenedor">
+    <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
+        <div class="panel panel-body col-md-12" id="formulario">
+            <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
             <?php
             if(isset($estatus)){
                 echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';

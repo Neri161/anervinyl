@@ -13,9 +13,11 @@
     <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
 </head>
 <body>
+
 <div class="container col-md-12" id="contenedor">
-    <div class="panel panel-body col-md-offset-4 col-md-4" id="formulario">
-            <h3 class="text-center">Crear Cuenta</h3>
+    <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
+        <div class="panel panel-body col-md-12" id="formulario">
+            <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
             <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
                 <div class="row" id="col">
                     <div class="col-md-12">
@@ -42,11 +44,11 @@
                         <div class="form-group">
                             <label for="correo">Correo:</label>
                             <input type="email" id="correo" name="correo" required class="form-control">
-                                <?php
-                                if(isset($usuarioNoExiste)){
-                                    echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
-                                }
-                                ?>
+                            <?php
+                            if(isset($usuarioNoExiste)){
+                                echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
+                            }
+                            ?>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -59,7 +61,8 @@
                             <label for="contrasenia">Contraseña:</label>
                             <input type="password" id="contrasenia-1" name="contrasenia" required class="form-control">
                             <span id="mensaje"></span>
-                            <h5 class="alert-warning" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</h5>
+                            <br>
+                            <span id="alerta" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</span>
 
                         </div>
                     </div>
@@ -79,6 +82,7 @@
                     </div>
                 </div>
             </form>
+        </div>
     </div>
 </div>
 <script src="../../../repo/Public/js/jquery.min.js"></script>

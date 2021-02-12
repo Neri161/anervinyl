@@ -10,7 +10,7 @@ class UsuarioController
     }
 
     function registro(){
-        require "app/Views/registro.php";
+        require "app/Views/usuario/registro.php";
     }
 
     function verificarRegistro(){
@@ -27,12 +27,12 @@ class UsuarioController
             header("location:../../../repo/index.php?controller=Usuario&action=login");
         }else{
             $usuarioNoExiste="El correo electronico ya existe";
-            require "app/Views/registro.php";
+            require "app/Views/usuario/registro.php";
         }
     }
 
     function login(){
-        require "app/Views/login.php";
+        require "app/Views/usuario/login.php";
     }
 
     function verificarCredenciales(){
@@ -48,14 +48,14 @@ class UsuarioController
                 session_start();
                 $_SESSION["nombre"]=$verificar->nombre;
                 $nombre=$verificar->nombre;
-                require 'app/Views/inicio.php';
+                require 'app/Views/usuario/login.php';
             }else{
                 $Contrasenia="La contraseña es incorrecta";
-                require "app/Views/login.php";
+                require "app/Views/usuario/login.php";
             }
         }else{
                 $estatus="Datos incorectos";
-                require "app/Views/login.php";
+                require "app/Views/usuario/login.php";
         }
 
     }

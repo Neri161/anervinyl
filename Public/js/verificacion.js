@@ -4,7 +4,7 @@ $(document).ready(function (){
         var apellidopaterno = $("#paterno").val();
         var apellidomaterno = $("#materno").val();
         var correo=$("#correo").val();
-        var pass1=$("#contrasenia").val();
+        var pass1=$("#contrasenia-1").val();
         var pass2=$("#contrasenia-2").val();
         if (nombre=="" || nombre==null){
             alert("Ingresa el Nombre");
@@ -26,8 +26,13 @@ $(document).ready(function (){
             $("#correo").focus();
             return false;
         }
-        if ((pass1=="" || pass1==null) && (pass2=="" || pass2==null)){
+        if ((pass1=="" || pass1==null) || (pass2=="" || pass2==null)){
             alert("ingresa la contraseña");
+            $("#password").focus();
+            return false;
+        }
+        if (pass1 != pass2){
+            alert("Las contraseñas no son iguales");
             $("#password").focus();
             return false;
         }

@@ -33,4 +33,8 @@
     background-color: rgb(149,213,38);
     padding-bottom: 0;
 }
+#btn-admin{
+    background-color: rgb(255,159,82);
+    color: white;
+}
 

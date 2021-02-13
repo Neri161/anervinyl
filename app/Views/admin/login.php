@@ -49,7 +49,7 @@
                     ?>
                 </div>
                     <div class="form-group">
-                        <button class="btn-success form-control">Ingresar</button>
+                        <button class="btn form-control" id="btn-admin">Ingresar</button>
                     </div>
                 <div class="col-md-12">
                     <div class="form-group">

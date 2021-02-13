@@ -3,16 +3,12 @@ require 'app/Models/Usuario.php';
 use Models\Usuario;
 class UsuarioController
 {
-
     function __construct()
     {
-
     }
-
     function registro(){
         require "app/Views/usuario/registro.php";
     }
-
     function verificarRegistro(){
         $correo=&$_POST["correo"];
         $verificar = Usuario::verificarCorreo($correo);
@@ -26,15 +22,13 @@ class UsuarioController
             $usario->crear();
             header("location:../../../repo/index.php?controller=Usuario&action=login");
         }else{
-            $usuarioNoExiste="El correo electronico ya existe";
+            $usuarioNoExiste="El usuario ya existe";
             require "app/Views/usuario/registro.php";
         }
     }
-
     function login(){
         require "app/Views/usuario/login.php";
     }
-
     function verificarCredenciales(){
         if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
             echo "Datos incorrectos";
@@ -48,7 +42,7 @@ class UsuarioController
                 session_start();
                 $_SESSION["nombre"]=$verificar->nombre;
                 $nombre=$verificar->nombre;
-                require 'app/Views/usuario/login.php';
+                require 'app/Views/usuario/inicio.php';
             }else{
                 $Contrasenia="La contraseña es incorrecta";
                 require "app/Views/usuario/login.php";

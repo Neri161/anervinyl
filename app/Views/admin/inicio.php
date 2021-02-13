@@ -8,7 +8,7 @@ if(isset($_SESSION["nombre"]))
 error_reporting(0);
 
 if($varsesion==null || $varsesion=''){
-    require 'app/Views/usuario/login.php';
+    require 'app/Views/admin/login.php';
     die();
 }
 ?>
@@ -82,7 +82,7 @@ if($varsesion==null || $varsesion=''){
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a></li>
+                                <li><a href="../../../repo/index.php?controller=Admin&action=logout">Cerrar Sesion</a></li>
                             </ul>
                         </li>
                     </ul>

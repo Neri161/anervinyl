@@ -1,3 +1,12 @@
+<?php
+
+    if(!isset($_SESSION["nombre"]))
+        session_start();
+    if(isset($_SESSION["nombre"])){
+        require 'app/Views/admin/inicio.php';
+        die();
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +15,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Iniciar Sesion</title>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="../../../../repo/Public/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -17,19 +25,19 @@
 </head>
 <body>
 
-<div class="container col-md-12" id="contenedor">
-    <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
-        <div class="panel panel-body col-md-12" id="formulario">
-            <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
+<div class="container col-md-12" id="contenedor-admin">
+    <div class="container col-md-offset-4 col-md-4" id="contenedor-2-admin">
+        <div class="panel panel-body col-md-12" id="formulario-admin">
+            <center><img src="../../../../repo/Public/img/2.png" alt="usuario" width="70px"></center>
             <?php
             if(isset($estatus)){
                 echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';
             }
             ?>
-            <form action="index.php?controller=Usuario&action=verificarCredenciales" method="post">
+            <form action="index.php?controller=Admin&action=verificarCredenciales" method="post">
                 <div class="form-group">
-                    <label for="">Correo</label>
-                    <input type="text" name="correo" id="correo" class="form-control" placeholder="Correo" required>
+                    <label for="">Nombre</label>
+                    <input type="text" name="correo" id="correo" class="form-control" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
                     <label for="">Contraseña</label>
@@ -45,21 +53,15 @@
                     </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <a href="" target="_blank">¿Olvidaste tu contraseña?</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <a href="index.php?controller=Usuario&action=registro" target="_blank">Crear cuenta</a>
+                        <a href="">¿Olvidaste tu contraseña?</a>
+                        <div class="row"></div>
+                        <a href="index.php?controller=Usuario&action=registro">Crear cuenta</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 

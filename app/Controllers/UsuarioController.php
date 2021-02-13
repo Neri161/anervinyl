@@ -20,7 +20,7 @@ class UsuarioController
             $usario->correo=$_POST["correo"];
             $usario->contrasenia=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
             $usario->crear();
-            header("location:../../../repo/index.php?controller=Usuario&action=login");
+            header("location:../../../repo/index.php?controller=Usuario&action=dologin");
         }else{
             $usuarioNoExiste="El usuario ya existe";
             require "app/Views/usuario/registro.php";
@@ -28,6 +28,14 @@ class UsuarioController
     }
     function login(){
         require "app/Views/usuario/login.php";
+    }
+    function dologin(){
+       require 'app/Views/usuario/inicio.php';
+    }
+    function logout(){
+        session_start();
+        session_destroy();
+        header("location:../../../repo/index.php?controller=Usuario&action=login");
     }
     function verificarCredenciales(){
         if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
@@ -40,9 +48,13 @@ class UsuarioController
         if ($verificar){
             if (password_verify($contrasenia,$verificar->contrasenia)){
                 session_start();
+                $_SESSION["idUsuario"]=$verificar->id_usuario;
                 $_SESSION["nombre"]=$verificar->nombre;
+                $_SESSION["apellidoPaterno"]=$verificar->apellido_paterno;
+                $_SESSION["apellidoMaterno"]=$verificar->apellido_materno;
+                $_SESSION["correo"]=$verificar->correo;
                 $nombre=$verificar->nombre;
-                require 'app/Views/usuario/inicio.php';
+                header("location:../../../repo/index.php?controller=Usuario&action=dologin");
             }else{
                 $Contrasenia="La contraseña es incorrecta";
                 require "app/Views/usuario/login.php";

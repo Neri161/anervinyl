@@ -1,3 +1,12 @@
+<?php
+
+    if(!isset($_SESSION["nombre"]))
+        session_start();
+    if(isset($_SESSION["nombre"])){
+        require 'app/Views/usuario/inicio.php';
+        die();
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +15,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Iniciar Sesion</title>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" type="text/css" href="../../../../repo/Public/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -45,12 +53,9 @@
                     </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <a href="" target="_blank">¿Olvidaste tu contraseña?</a>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <a href="index.php?controller=Usuario&action=registro" target="_blank">Crear cuenta</a>
+                        <a href="">¿Olvidaste tu contraseña?</a>
+                        <div class="row"></div>
+                        <a href="index.php?controller=Usuario&action=registro">Crear cuenta</a>
                     </div>
                 </div>
             </form>

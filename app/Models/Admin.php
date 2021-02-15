@@ -8,6 +8,7 @@ class Admin extends Conexion
 {
     public $correo;
     public $contrasenia;
+    //hola
     function __construct()
     {
         parent::__construct();

@@ -43,7 +43,7 @@ class Usuario extends Conexion
     }
     static function verificarDireccion($id){
         $conexion = new Conexion();
-        $pre = mysqli_prepare($conexion->conexion,"SELECT id_Direccion FROM direcciones WHERE id_usuario=?");
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM direcciones WHERE id_usuario=?");
         $pre->bind_param("s", $id);
         $pre->execute();
         $resultado = $pre->get_result();

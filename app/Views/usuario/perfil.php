@@ -87,7 +87,7 @@ if($varsesion==null || $varsesion=''){
     </div>
 </nav>
 <br>
-<center><img class="col-md-2 col-sm-2 img-responsive" src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>" style="border: solid darkslateblue;border-radius:100px;"></center>
+<center><img class="col-md-2 col-sm-2 img-responsive" src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>" style="border-radius:100px;"></center>
 <br>
 <div class="container">
     <form name="form" action="" method="post" enctype="multipart/form-data">
@@ -132,6 +132,7 @@ if($varsesion==null || $varsesion=''){
 
                 </div>
             </div>
+            <!--direccion-->
     </form>
 </div>
 

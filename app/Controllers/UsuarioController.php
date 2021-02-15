@@ -49,8 +49,8 @@ class UsuarioController
         }
         $correo=$_POST["correo"];
         $contrasenia=$_POST["contrasenia"];
-        $verificar = Usuario::vereficarUsuario($correo,$contrasenia);
-        if ($verificar!=null || $verificar!=''){
+        $verificar = Usuario::vereficarUsuario($correo);
+        if ($verificar){
             if (password_verify($contrasenia,$verificar->contrasenia)){
                 session_start();
                 $_SESSION["idUsuario"]=$verificar->id_usuario;
@@ -61,8 +61,8 @@ class UsuarioController
                 $_SESSION["foto"]=$verificar->foto;
                 $_SESSION["tipo"]=$verificar->tipo;
                 $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
-                if($verificarDirecciones!=null || $verificarDirecciones!=''){
-                    $_SESSION["	idDireccion"]=$verificarDirecciones->id_Direccion;
+                if($verificarDirecciones){
+                    $_SESSION["idDireccion"]=$verificarDirecciones->id_Direccion;
                     $_SESSION["CP"]=$verificarDirecciones->nombre;
                     $_SESSION["calle"]=$verificarDirecciones->calle;
                     $_SESSION["noInterior"]=$verificar->no_Interior;

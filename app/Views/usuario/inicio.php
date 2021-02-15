@@ -5,7 +5,6 @@ $varsesion='';
 if(isset($_SESSION["idUsuario"]))
     $varsesion = $_SESSION["idUsuario"];
 
-
 if($varsesion==null || $varsesion=''){
     require 'app/Views/usuario/login.php';
     die();
@@ -73,7 +72,7 @@ if($varsesion==null || $varsesion=''){
                             <a class="dropdown-item" href="#">Agregar Direccion</a>
                             <?php
                             }
-                            if(!isset($_SESSION["idDireccion"])){
+                            if(!isset($_SESSION["idTarjeta"])){
                                 ?>
                                 <a class="dropdown-item" href="#">Agregar Tarjeta</a>
                                 <?php
@@ -96,7 +95,7 @@ if($varsesion==null || $varsesion=''){
                 ?>
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png" >
+                <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png">
                 <div class="card-body">
                     <span>titulo del producto</span>
                     <h5 class="card-title">$300</h5>

@@ -35,6 +35,6 @@ class AdminController
         }
     }
     function registroProveedor(){
-        require 'app/Views/admin/registroProvvedor.php';
+        require 'app/Views/admin/registroProveedor.php';
     }
 }

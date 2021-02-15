@@ -37,7 +37,7 @@ if($varsesion==null || $varsesion=''){
                     Acciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Registrar Proveedor</a>
+                    <a class="dropdown-item" href="index.php?controller=Admin&action=registroProveedor">Registrar Proveedor</a>
                     <a class="dropdown-item" href="#">Registrar Artista</a>
                     <a class="dropdown-item" href="#">Elimar Usuario</a>
                     <a class="dropdown-item" href="#">Elimar Producto</a>

@@ -4,8 +4,6 @@ if(!isset($_SESSION["idUsuario"]))
 $varsesion='';
 if(isset($_SESSION["idUsuario"]))
     $varsesion = $_SESSION["idUsuario"];
-
-
 if($varsesion==null || $varsesion=''){
     require 'app/Views/usuario/login.php';
     die();

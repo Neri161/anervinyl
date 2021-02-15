@@ -2,13 +2,16 @@
 namespace Models;
 require 'app/Models/Conexion.php';
 use Models\Conexion;
-namespace Models;
 
 
 class Admin extends Conexion
 {
     public $correo;
     public $contrasenia;
+    function __construct()
+    {
+        parent::__construct();
+    }
     static function vereficarAdmin($correo)
     {
         $conexion = new Conexion();

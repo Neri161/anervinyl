@@ -1,11 +1,10 @@
 <?php
-if(!isset($_SESSION["nombre"]))
+if(!isset($_SESSION["idUsuario"]))
     session_start();
 $varsesion='';
-if(isset($_SESSION["nombre"]))
-    $varsesion = $_SESSION["nombre"];
+if(isset($_SESSION["idUsuario"]))
+    $varsesion = $_SESSION["idUsuario"];
 
-error_reporting(0);
 
 if($varsesion==null || $varsesion=''){
     require 'app/Views/usuario/login.php';
@@ -16,86 +15,106 @@ if($varsesion==null || $varsesion=''){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/inicio.css">
 </head>
 <body>
-<div class="container">
-    <br>
-    <header>
         <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
-        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-            <div class="container-fuid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-                        <span class="sr-only">Menu</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="#" class="navbar-brand"> Aner Vinyl </a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar-1">
-                    <ul class="nav navbar-nav">
-                        <!--Items, titulos -->
-                        <li><a href="">Item 1</a></li>
-                        <li class="active"><a href="">Item 2</a></li>
-                        <!--Menu desplegable -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toogle="dropdown" role="button">
-                                Dropdown <span class="caret" ></span >
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li> <a href="#">Item #1</a></li>
-                                <li> <a href="#">Item #2</a></li>
-                                <li class="divider"> </li>
-                                <li> <a href="#">Item #4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!--Busqueda -->
-                    <form action="" class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Buscar">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Aner Vinyl </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Items, titulos -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <!--Menu desplegable -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
                         </div>
-                    </form>
-                    <!--Elementos de la derecha -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Item 1</a></li>
-                        <li class="active"><a href="">Item 2</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
-                                if(isset($_SESSION["nombre"])){
-                                    echo $_SESSION["nombre"];
-                                }
-                                ?> <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     </li>
-                    </ul>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <!--Busqueda -->
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <!--Elementos de la derecha -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Carrito</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
+                            <?php
+                            if(isset($_SESSION["nombre"])){
+                            echo "Bienvenido ".$_SESSION["nombre"];
+                            }
+                            ?>
+                        </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=perfil">Perfil</a>
+                            <?php
+                            if(!isset($_SESSION["idDireccion"])){
+                            ?>
+                            <a class="dropdown-item" href="#">Agregar Direccion</a>
+                            <?php
+                            }
+                            if(!isset($_SESSION["idDireccion"])){
+                                ?>
+                                <a class="dropdown-item" href="#">Agregar Tarjeta</a>
+                                <?php
+                            }
+                            ?>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </header>
-</div>
-<script src="../../../repo/Public/js/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<div class="container">
+    <br>
+    <div class="row">
+        <?php
+            for ($X=0; $X<=11; $X++){
+                ?>
+        <div class="col-md-3">
+            <div class="card">
+                <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png" >
+                <div class="card-body">
+                    <span>titulo del producto</span>
+                    <h5 class="card-title">$300</h5>
+                    <p class="card-text">Descripcion</p>
+                    <button class="btn btn-primary" name="accion" value="agregar" type="submit">Agregar Al carrito</button>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        ?>
+    </div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -34,4 +34,7 @@ class AdminController
             require "app/Views/admin/login.php";
         }
     }
+    function registroProveedor(){
+        require 'app/Views/admin/registroProvvedor.php';
+    }
 }

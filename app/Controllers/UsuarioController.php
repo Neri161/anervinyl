@@ -12,6 +12,9 @@ class UsuarioController
     function verificarRegistro(){
         $correo=&$_POST["correo"];
         $verificar = Usuario::verificarCorreo($correo);
+        $image = '10160';
+        $imageSubida=fopen('C:\xampp\htdocs\repo\Public\img\defecto.jpg','r');
+        $binariosImagen=fread($imageSubida,$image);
         if($verificar==null){
             $usario = new Usuario();
             $usario->nombre=$_POST["nombre"];
@@ -19,8 +22,10 @@ class UsuarioController
             $usario->apellidoMaterno=$_POST["materno"];
             $usario->correo=$_POST["correo"];
             $usario->contrasenia=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
+            $usario->foto=$binariosImagen;
+            $usario->tipo='image/jpg';
             $usario->crear();
-            header("location:../../../repo/index.php?controller=Usuario&action=dologin");
+            header("location:../../../repo/index.php?controller=Usuario&action=login");
         }else{
             $usuarioNoExiste="El usuario ya existe";
             require "app/Views/usuario/registro.php";
@@ -45,7 +50,7 @@ class UsuarioController
         $correo=$_POST["correo"];
         $contrasenia=$_POST["contrasenia"];
         $verificar = Usuario::vereficarUsuario($correo,$contrasenia);
-        if ($verificar){
+        if ($verificar!=null || $verificar!=''){
             if (password_verify($contrasenia,$verificar->contrasenia)){
                 session_start();
                 $_SESSION["idUsuario"]=$verificar->id_usuario;
@@ -53,7 +58,18 @@ class UsuarioController
                 $_SESSION["apellidoPaterno"]=$verificar->apellido_paterno;
                 $_SESSION["apellidoMaterno"]=$verificar->apellido_materno;
                 $_SESSION["correo"]=$verificar->correo;
-                $nombre=$verificar->nombre;
+                $_SESSION["foto"]=$verificar->foto;
+                $_SESSION["tipo"]=$verificar->tipo;
+                $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
+                if($verificarDirecciones!=null || $verificarDirecciones!=''){
+                    $_SESSION["	idDireccion"]=$verificarDirecciones->id_Direccion;
+                    $_SESSION["CP"]=$verificarDirecciones->nombre;
+                    $_SESSION["calle"]=$verificarDirecciones->calle;
+                    $_SESSION["noInterior"]=$verificar->no_Interior;
+                    $_SESSION["noExterior"]=$verificar->no_Exterior;
+                    $_SESSION["telefono"]=$verificar->telefono;
+                    $_SESSION["referencia"]=$verificar->referencia;
+                }
                 header("location:../../../repo/index.php?controller=Usuario&action=dologin");
             }else{
                 $Contrasenia="La contraseña es incorrecta";
@@ -64,6 +80,9 @@ class UsuarioController
                 require "app/Views/usuario/login.php";
         }
 
+    }
+    function perfil(){
+        require "app/Views/usuario/perfil.php";
     }
 
 }

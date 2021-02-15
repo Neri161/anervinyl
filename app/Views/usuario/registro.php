@@ -1,8 +1,8 @@
 <?php
 
-if(!isset($_SESSION["nombre"]))
+if(!isset($_SESSION["idUsuario"]))
     session_start();
-if(isset($_SESSION["nombre"])){
+if(isset($_SESSION["idUsuario"])){
     require 'app/Views/usuario/inicio.php';
     die();
 }
@@ -15,10 +15,7 @@ if(isset($_SESSION["nombre"])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro de Usuario</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/estilos.css">
 </head>
 <body>
@@ -26,7 +23,7 @@ if(isset($_SESSION["nombre"])){
     <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
         <div class="panel panel-body col-md-12" id="formulario">
             <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
-            <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
+            <form name="form" action="index.php?controller=Usuario&action=verificarRegistro" method="post" enctype="multipart/form-data">
                 <div class="row" id="col">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -51,7 +48,7 @@ if(isset($_SESSION["nombre"])){
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="correo">Correo:</label>
-                            <input type="email" id="correo" name="correo" required class="form-control">
+                            <input type="email" id="correo" name="correo" placeholder="Correo" required class="form-control">
                             <?php
                             if(isset($usuarioNoExiste)){
                                 echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
@@ -67,18 +64,19 @@ if(isset($_SESSION["nombre"])){
                             }
                             ?>
                             <label for="contrasenia">Contraseña:</label>
-                            <input type="password" id="contrasenia-1" name="contrasenia" required class="form-control">
+                            <input type="password" id="contrasenia-1" name="contrasenia" placeholder="Contraseña" required class="form-control">
                             <span id="mensaje"></span>
                             <br>
                             <span id="alerta" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</span>
-
                         </div>
                     </div>
 
+                </div>
+                <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="contrasenia-2">Contraseña</label>
-                            <input type="password" id="contrasenia-2" name="contrasenia2" required class="form-control">
+                            <input type="password" id="contrasenia-2" name="contrasenia2" placeholder="Contraseña" required class="form-control">
                             <span  id="mensaje-2"></span>
                         </div>
                     </div>
@@ -86,7 +84,7 @@ if(isset($_SESSION["nombre"])){
                 <div class="row">
                     <div class="col-md-12" style="padding-bottom: 3%;">
                         <!--<input type="submit" class="form-control btn-info" value="Enviar">-->
-                        <button class="btn-success form-control" id="guardar">Guardar</button>
+                       <button class="btn-success form-control" id="guardar">Guardar</button>
                         <div class="form-group">
                          <a href="index.php?controller=Usuario&action=login">¿Tienes una cuenta?</a>
                         </div>

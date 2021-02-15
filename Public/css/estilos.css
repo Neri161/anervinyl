@@ -1,3 +1,4 @@
+
 #login{
     margin-top: 5%;
     padding: 10px;
@@ -14,7 +15,6 @@
 #contenedor-2{
     padding: 10px;
     background-color: rgb(123,205,255);
-    padding-bottom: 0;
 }
 #alerta{
     color:rgb(111,109,255);
@@ -31,7 +31,6 @@
 #contenedor-2-admin{
     padding: 10px;
     background-color: rgb(149,213,38);
-    padding-bottom: 0;
 }
 #btn-admin{
     background-color: rgb(255,159,82);

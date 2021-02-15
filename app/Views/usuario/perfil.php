@@ -24,7 +24,7 @@ if($varsesion==null || $varsesion=''){
 <body>
 <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Aner Vinyl </a>
+    <a class="navbar-brand" href="../../../repo/index.php?controller=Usuario&action=dologin">Aner Vinyl </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -87,7 +87,7 @@ if($varsesion==null || $varsesion=''){
     </div>
 </nav>
 <br>
-<center><img class="col-md-2 col-md-offset-5 img-responsive " src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>"></center>
+<center><img class="col-md-2 col-sm-2 img-responsive" src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>" style="border: solid darkslateblue;border-radius:100px;"></center>
 <br>
 <div class="container">
     <form name="form" action="" method="post" enctype="multipart/form-data">
@@ -125,12 +125,11 @@ if($varsesion==null || $varsesion=''){
                 </div>
          </div>
             <div class="row">
-                <div class="col-md-12" style="padding-bottom: 3%;">
-                    <!--<input type="submit" class="form-control btn-info" value="Enviar">-->
-                    <button class="btn-success form-control" id="guardar">Guardar</button>
+                <div class="col-12">
                     <div class="form-group">
-                        <a href="index.php?controller=Usuario&action=login">¿Tienes una cuenta?</a>
+                        <button class="btn btn-success form-control" id="guardar">Guardar</button>
                     </div>
+
                 </div>
             </div>
     </form>

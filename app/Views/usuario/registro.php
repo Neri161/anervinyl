@@ -22,6 +22,7 @@ if(isset($_SESSION["idUsuario"])){
 <div class="container col-md-12" id="contenedor">
     <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
         <div class="panel panel-body col-md-12" id="formulario">
+            <br>
             <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
             <form name="form" action="index.php?controller=Usuario&action=verificarRegistro" method="post" enctype="multipart/form-data">
                 <div class="row" id="col">

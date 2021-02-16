@@ -34,62 +34,70 @@ if(isset($_SESSION["nombre"])){
                             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="paterno">Apellido Paterno: </label>
-                            <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Apellido Paterno" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="materno">Apellido Materno: </label>
-                            <input type="text" name="materno" id="materno" class="form-control" placeholder="Apellido Materno" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="correo">Correo:</label>
-                            <input type="email" id="correo" name="correo" required class="form-control">
-                            <?php
-                            if(isset($usuarioNoExiste)){
-                                echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
-                            }
-                            ?>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <?php
-                            if(isset($error_encontrado)){
-                                echo '<h5 class="alert-danger text-center">Contraseña no valida'.$error_encontrado.'</h5>';
-                            }
-                            ?>
-                            <label for="contrasenia">Contraseña:</label>
-                            <input type="password" id="contrasenia-1" name="contrasenia" required class="form-control">
-                            <span id="mensaje"></span>
-                            <br>
-                            <span id="alerta" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</span>
 
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="Categoria">Categoría: </label>
+                        <select name="select">
+                        <option value="value1">Seleccione Categoria</option>
+                    </select>   
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="contrasenia-2">Contraseña</label>
-                            <input type="password" id="contrasenia-2" name="contrasenia2" required class="form-control">
-                            <span  id="mensaje-2"></span>
+                        <label for="tipo">Tipo: </label>
+                        <select name="select">
+                        <option value="value1">Seleccione Tipo</option>
+                    </select>   
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="artista">Artista: </label>
+                        <select name="select">
+                        <option value="value1">Seleccione Artista</option>
+                    </select>   
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="precio">Precio: </label>
+                            <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="materno">Stock: </label>
+                            <input type="text" name="stock" id="stock" class="form-control" placeholder="Stock" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="anio">Anio: </label>
+                            <input type="text" name="anio" id="anio" class="form-control" placeholder="Anio" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="Proveedor">Proveedor: </label>
+                        <select name="select">
+                        <option value="value1">Seleccione Proveedor</option>
+                    </select>   
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="imagen">Imagen: </label>
+                            <input type="file">
                         </div>
                     </div>
                 </div>
+           
                 <div class="row">
                     <div class="col-md-12" style="padding-bottom: 3%;">
                         <!--<input type="submit" class="form-control btn-info" value="Enviar">-->
                         <button class="btn-success form-control" id="guardar">Guardar</button>
-                        <div class="form-group">
-                         <a href="index.php?controller=Usuario&action=login">¿Tienes una cuenta?</a>
-                        </div>
                     </div>
                 </div>
             </form>

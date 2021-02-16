@@ -37,7 +37,7 @@ if(isset($_SESSION["nombre"])){
 
                     <div class="col-md-12">
                         <div class="form-group">
-                        <label for="Categoria">CategorÃ­a: </label>
+                        <label for="Categoria">Categoría: </label>
                         <select name="select">
                         <option value="value1">Seleccione Categoria</option>
                     </select>   
@@ -68,7 +68,7 @@ if(isset($_SESSION["nombre"])){
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="materno">Stock: </label>
+                            <label for="stock">Stock: </label>
                             <input type="text" name="stock" id="stock" class="form-control" placeholder="Stock" required>
                         </div>
                     </div>

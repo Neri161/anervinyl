@@ -37,7 +37,7 @@ if(isset($_SESSION["nombre"])){
 
                     <div class="col-md-12">
                         <div class="form-group">
-                        <label for="Categoria">Categoría: </label>
+                        <label for="Categoria">Categoria: </label>
                         <select name="select">
                         <option value="value1">Seleccione Categoria</option>
                     </select>   

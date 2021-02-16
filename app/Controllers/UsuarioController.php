@@ -79,7 +79,6 @@ class UsuarioController
                 $estatus="Datos incorectos";
                 require "app/Views/usuario/login.php";
         }
-
     }
     function perfil(){
         require "app/Views/usuario/perfil.php";

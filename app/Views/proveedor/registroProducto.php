@@ -13,8 +13,7 @@ if($varsesion==null || $varsesion=''){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registro Proveedor</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -83,35 +82,49 @@ if($varsesion==null || $varsesion=''){
                 <br>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="correo">Correo:</label>
-                        <input type="email" id="correo" name="correo" placeholder="Correo" required class="form-control">
-                        <?php
-                        if(isset($usuarioNoExiste)){
-                            echo '<h5 class="alert-danger text-center">'.$usuarioNoExiste.'</h5>';
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <?php
-                        if(isset($error_encontrado)){
-                            echo '<h5 class="alert-danger text-center">Contraseña no valida'.$error_encontrado.'</h5>';
-                        }
-                        ?>
-                        <label for="contrasenia">Contraseña:</label>
-                        <input type="password" id="contrasenia-1" name="contrasenia" placeholder="Contraseña" required class="form-control">
-                        <span id="mensaje"></span>
-                        <br>
-                        <span id="alerta" role="alert"><strong>!</strong> La contraseña debe contener al menos 6 caracteres</span>
+                        <label for="Categoria">Categoria: </label>
+                        <select name="select">
+                            <option value="value1">Seleccione Categoria</option>
+                        </select>
                     </div>
                 </div>
                 <br>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="contrasenia-2">Contraseña</label>
-                        <input type="password" id="contrasenia-2" name="contrasenia2" placeholder="Contraseña" required class="form-control">
-                        <span  id="mensaje-2"></span>
+                        <label for="tipo">Tipo: </label>
+                        <select name="select">
+                            <option value="value1">Seleccione Tipo</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="artista">Artista: </label>
+                        <select name="select">
+                            <option value="value1">Seleccione Artista</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="precio">Precio: </label>
+                        <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" required>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="stock">Stock: </label>
+                        <input type="text" name="stock" id="stock" class="form-control" placeholder="Stock" required>
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="anio">Anio: </label>
+                        <input type="text" name="anio" id="anio" class="form-control" placeholder="Anio" required>
                     </div>
                 </div>
                 <br>
@@ -121,7 +134,8 @@ if($varsesion==null || $varsesion=''){
             </form>
         </div>
         <div class="sidebar-datos col-md-6" style="border: solid; height: 100px;">
-
+            <h1>Hola</h1>
+            <h1>Hola</h1>
         </div>
     </div>
 </main>

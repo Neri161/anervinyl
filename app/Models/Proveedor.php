@@ -14,5 +14,19 @@ class Proveedor extends Conexion
     {
         parent::__construct();
     }
-
+    function crear()
+    {
+        $pre = mysqli_prepare($this->conexion, "INSERT INTO proveedor (nombre_Proveedor,correo,contrasenia,telefono) VALUES(?,?,?,?)");
+        $pre->bind_param("ssss", $this->nombreProveedor, $this->correo, $this->contraseña, $this->telefono);
+        $pre->execute();
+    }
+    static function vereficarProveedor($correo)
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM proveedor WHERE nombre=?");
+        $pre->bind_param("s", $correo);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        return $resultado->fetch_object();
+    }
 }

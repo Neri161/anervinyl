@@ -20,6 +20,25 @@ class ProveedorController
         $proveedor->telefono=$_POST["telefono"];
         $proveedor->correo=$_POST["correo"];
         $proveedor->contraseña=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
-        echo var_dump($proveedor);
+        $proveedor->crear();
+        require "app/Views/admin/registroProveedor.php";
+    }
+    function verificarCredenciales(){
+        if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
+            echo "Datos incorrectos";
+            return false;
+        }
+        $correo=$_POST["correo"];
+        $contrasenia=$_POST["contrasenia"];
+        $verificar = Proveedor::vereficarProveedor($correo);
+        if ($verificar){
+            session_start();
+            $_SESSION["idProveedor"]=$verificar->id_proveedor;
+            $_SESSION["nombre"]=$verificar->nombre_proveedor;
+            header("location:../../../repo/index.php?controller=Proveedor&action=dologin");
+        }else{
+            $estatus="Datos incorectos";
+            require "app/Views/admin/login.php";
+        }
     }
 }

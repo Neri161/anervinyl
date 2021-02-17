@@ -30,7 +30,7 @@
                 echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';
             }
             ?>
-            <form action="index.php?controller=Admin&action=verificarCredenciales" method="post">
+            <form action="index.php?controller=Proveedor&action=verificarCredenciales" method="post">
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input type="text" name="correo" id="correo" class="form-control" placeholder="Nombre" required>

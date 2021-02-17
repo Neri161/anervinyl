@@ -20,4 +20,15 @@ class Producto extends Conexion
     {
         parent::__construct();
     }
+       static function Productosall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM productos");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
 }

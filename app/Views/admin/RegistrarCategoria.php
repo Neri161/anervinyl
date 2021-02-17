@@ -25,7 +25,6 @@ if(isset($_SESSION["nombre"])){
 <div class="container col-md-12" id="contenedor">
     <div class="container col-md-offset-4 col-md-4" id="contenedor-2">
         <div class="panel panel-body col-md-12" id="formulario">
-            <center><img src="../../../../repo/Public/img/1.png" alt="usuario" width="70px"></center>
             <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
                 <div class="row" id="col">
                     <div class="col-md-12">
@@ -37,7 +36,6 @@ if(isset($_SESSION["nombre"])){
            
                 <div class="row">
                     <div class="col-md-12" style="padding-bottom: 3%;">
-                        <!--<input type="submit" class="form-control btn-info" value="Enviar">-->
                         <button class="btn-success form-control" id="guardar">Guardar</button>
                     </div>
                 </div>

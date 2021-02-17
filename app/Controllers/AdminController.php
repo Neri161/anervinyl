@@ -35,6 +35,7 @@ class AdminController
         }
     }
     function registroProveedor(){
+        $proveedor=Admin::Proveedorall();
         require 'app/Views/admin/registroProveedor.php';
     }
 }

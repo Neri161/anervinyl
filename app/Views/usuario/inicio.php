@@ -86,7 +86,6 @@ if($varsesion==null || $varsesion=''){
                 </ul>
             </div>
         </nav>
-
 <div class="container">
     <br>
     <div class="row">

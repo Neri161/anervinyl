@@ -5,7 +5,7 @@ $varsesion='';
 if(isset($_SESSION["idAdmin"]))
     $varsesion = $_SESSION["idAdmin"];
 if($varsesion==null || $varsesion=''){
-    require 'app/Views/usuario/login.php';
+    require 'app/Views/admin/login.php';
     die();
 }
 ?>
@@ -23,7 +23,7 @@ if($varsesion==null || $varsesion=''){
 <body>
 <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Aner Vinyl </a>
+    <a class="navbar-brand" href="../../../repo/index.php?controller=Admin&action=login">Aner Vinyl </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -68,10 +68,10 @@ if($varsesion==null || $varsesion=''){
         </ul>
     </div>
 </nav>
-<main class="container-fluid">
+<main class="container">
     <div class="row registros">
-        <div class="col-md-6" style="border: solid;" >
-            <form action="">
+        <div class="col-md-6">
+            <form action="index.php?controller=Proveedor&action=verificarRegistro" method="post">
                 <h3 class="text-center">Registro de Proveedor</h3>
                 <br>
                 <div class="col-md-12">
@@ -79,8 +79,11 @@ if($varsesion==null || $varsesion=''){
                         <label for="nombre">Nombre: </label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
                     </div>
+                    <div class="form-group">
+                        <label for="nombre">Telefono: </label>
+                        <input type="number" name="telefono" id="telefono" class="form-control" placeholder="telefono" required>
+                    </div>
                 </div>
-                <br>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="correo">Correo:</label>
@@ -120,8 +123,36 @@ if($varsesion==null || $varsesion=''){
                 </div>
             </form>
         </div>
-        <div class="sidebar-datos col-md-6" style="border: solid; height: 100px;">
+        <div class="sidebar-datos col-md-6">
+            <div class="container-fluid">
+                <table class="table table-hover table-active" border="1">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if(isset($proveedor)){
+                        foreach ($proveedor as $valor){
+                        ?>
+                        <tr>
+                            <td><?php echo $valor["id_Proveedor"];?></td>
+                            <td><?php echo $valor["nombre_Proveedor"];?></td>
+                            <td><?php echo $valor["correo"];?></td>
+                            <td><?php echo $valor["telefono"];?></td>
+                        </tr>
+                        <?php
+                        }
+                    }
+                    ?>
 
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </main>
@@ -129,7 +160,7 @@ if($varsesion==null || $varsesion=''){
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="../../../repo/Public/js/verificacion.js"></script>
+
 <script src="../../../repo/Public/js/contrasenia.js"></script>
 </body>
 </html>

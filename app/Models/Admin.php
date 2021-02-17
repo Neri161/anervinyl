@@ -22,4 +22,15 @@ class Admin extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
+    static function Proveedorall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM proveedor");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
 }

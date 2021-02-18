@@ -71,6 +71,13 @@ class UsuarioController
                     $_SESSION["telefono"]=$verificar->telefono;
                     $_SESSION["referencia"]=$verificar->referencia;
                 }
+                $verificarTarjeta=Usuario::verificarTarjeta($_SESSION["idUsuario"]);
+                if($verificarDirecciones){
+                    $_SESSION["folio_Tarjeta"]=$verificarDirecciones->id_Direccion;
+                    $_SESSION["fechVencimiento"]=$verificarDirecciones->nombre;
+                    $_SESSION["noSeguridad"]=$verificarDirecciones->calle;
+                    $_SESSION["compania"]=$verificar->no_Interior;
+                }
                 header("location:../../../repo/index.php?controller=Usuario&action=dologin");
             }else{
                 $Contrasenia="La contraseña es incorrecta";
@@ -84,5 +91,7 @@ class UsuarioController
     function perfil(){
         require "app/Views/usuario/perfil.php";
     }
-
+    function registroDatos(){
+        require "app/Views/usuario/DireccionTarjeta.php";
+    }
 }

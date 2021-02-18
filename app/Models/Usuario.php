@@ -49,6 +49,14 @@ class Usuario extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
+    static function verificarTarjeta($id){
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM tarjetas_credito WHERE id_usuario=?");
+        $pre->bind_param("s", $id);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        return $resultado->fetch_object();
+    }
     static function Productosall()
     {
         $conexion = new Conexion();

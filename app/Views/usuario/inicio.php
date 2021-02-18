@@ -21,8 +21,8 @@ if($varsesion==null || $varsesion=''){
     <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/inicio.css">
 </head>
 <body>
-        <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="../../../repo/index.php?controller=Usuario&action=dologin">Aner Vinyl </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -69,12 +69,12 @@ if($varsesion==null || $varsesion=''){
                             <?php
                             if(!isset($_SESSION["idDireccion"])){
                             ?>
-                            <a class="dropdown-item" href="#">Agregar Direccion</a>
+                            <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=registroDatos">Agregar Direccion</a>
                             <?php
                             }
                             if(!isset($_SESSION["idTarjeta"])){
                                 ?>
-                                <a class="dropdown-item" href="#">Agregar Tarjeta</a>
+                                <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=registroDatos">Agregar Tarjeta</a>
                                 <?php
                             }
                             ?>

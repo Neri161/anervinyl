@@ -20,5 +20,4 @@ class Producto extends Conexion
     {
         parent::__construct();
     }
-
 }

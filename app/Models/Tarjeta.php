@@ -3,7 +3,7 @@ namespace Models;
 require 'app/Models/Conexion.php';
 use Models\Conexion;
 
-class TarjetasCredito extends Conexion
+class Tarjeta extends Conexion
 {
     public $folio_Tarjeta;
     public $fechVencimiento;

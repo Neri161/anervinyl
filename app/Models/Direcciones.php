@@ -19,9 +19,8 @@ class Direcciones extends Conexion
     }
     function crear()
     {
-        $this -> fecha_registro = date("Y-m-d");
         $pre = mysqli_prepare($this->conexion, "INSERT INTO direcciones (CP,calle,no_Interior,no_Exterior,telefono,referencia,id_Usuario) VALUES(?,?,?,?,?,?,?)");
-        $pre->bind_param("ssssssss", $this->CP, $this->calle, $this->no_Interior, $this->no_Exterior, $this->telefono, $this->referencia,$this->id_Usuario);
+        $pre->bind_param("sssssss", $this->CP, $this->calle, $this->no_Interior, $this->no_Exterior, $this->telefono, $this->referencia,$this->id_Usuario);
         $pre->execute();
     }
 }

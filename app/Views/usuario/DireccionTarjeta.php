@@ -90,26 +90,30 @@ if($varsesion==null || $varsesion=''){
     <?php
         if(!isset($_SESSION["idDireccion"])){
             ?>
-            <form action="index.php?controller=Direccion&action=verificarRegistro" method="post">
-                <div class="form-group">
-                    <label for="nombre">CP: </label>
-                    <input type="text" name="CP" id="CP" class="form-control" placeholder="CP" required>
+            <form action="index.php?controller=Direccion&action=verificarRegistro&id=<?php echo $_SESSION["idUsuario"];?>" method="post">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="nombre">CP: </label>
+                        <input type="text" name="CP" id="CP" class="form-control" placeholder="CP" required>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label for="nombre">Calle: </label>
+                        <input type="text" name="calle" id="calle" class="form-control" placeholder="calle" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="nombre">Calle: </label>
-                    <input type="text" name="calle" id="calle" class="form-control" placeholder="calle" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">No. Interior: </label>
-                    <input type="text" name="no_Interior" id="no_Interior" class="form-control" placeholder="No. Interior" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">No. Exterior: </label>
-                    <input type="text" name="no_Exterior" id="no_Exterior" class="form-control" placeholder="No. Exterior" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Telefono: </label>
-                    <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" required>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="nombre">No. Interior: </label>
+                        <input type="text" name="no_Interior" id="no_Interior" class="form-control" placeholder="No. Interior" required>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="nombre">No. Exterior: </label>
+                        <input type="text" name="no_Exterior" id="no_Exterior" class="form-control" placeholder="No. Exterior" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="nombre">Telefono: </label>
+                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Referencia: </label>
@@ -119,24 +123,28 @@ if($varsesion==null || $varsesion=''){
             </form>
             <?php
         }
-        if(!isset($_SESSION["idTarjeta"])){
+        if(!isset($_SESSION["folio_Tarjeta"])){
             ?>
-            <form action="index.php?controller=Usuario&action=verificarRegistro" method="post">
-                <div class="form-group">
-                    <label for="nombre">Folio de Tarjeta: </label>
-                    <input type="text" name="folio_Tarjeta" id="folio_Tarjeta" class="form-control" placeholder="Folio de Tarjeta" required>
+            <form action="index.php?controller=Tarjeta&action=verificarRegistro" method="post">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nombre">Folio de Tarjeta: </label>
+                        <input type="text" name="folio_Tarjeta" id="folio_Tarjeta" class="form-control" placeholder="Folio de Tarjeta" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="nombre">Fecha de Vencimiento: </label>
-                    <input type="text" name="fech_Vencimineto" id="fech_Vencimiento" class="form-control" placeholder="Fecha de Vencimiento" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Numero de Seguridad: </label>
-                    <input type="text" name="noSeguridad" id="noSeguridad" class="form-control" placeholder="Numero de Seguridad" required>
-                </div>
-                <div class="form-group">
-                    <label for="nombre">Compañia: </label>
-                    <input type="text" name="compania" id="compania" class="form-control" placeholder="Compañia" required>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="nombre ">Fecha de Vencimiento: </label>
+                        <input type="text" name="fech_Vencimineto" id="fech_Vencimiento" class="form-control" placeholder="Fecha de Vencimiento" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="nombre">Numero de Seguridad: </label>
+                        <input type="text" name="noSeguridad" id="noSeguridad" class="form-control" placeholder="Numero de Seguridad" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="nombre">Compañia: </label>
+                        <input type="text" name="compania" id="compania" class="form-control" placeholder="Compañia" required>
+                    </div>
                 </div>
                 <button class="btn-success form-control" id="guardar">Guardar</button>
             </form>
@@ -144,10 +152,9 @@ if($varsesion==null || $varsesion=''){
         }
         ?>
 </main>
-<script src="../../../repo/Public/js/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="../../../repo/Public/js/verificacion.js"></script>
-<script src="../../../repo/Public/js/contrasenia.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

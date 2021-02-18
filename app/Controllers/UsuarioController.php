@@ -64,19 +64,19 @@ class UsuarioController
                 $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
                 if($verificarDirecciones){
                     $_SESSION["idDireccion"]=$verificarDirecciones->id_Direccion;
-                    $_SESSION["CP"]=$verificarDirecciones->nombre;
+                    $_SESSION["CP"]=$verificarDirecciones->CP;
                     $_SESSION["calle"]=$verificarDirecciones->calle;
-                    $_SESSION["noInterior"]=$verificar->no_Interior;
-                    $_SESSION["noExterior"]=$verificar->no_Exterior;
-                    $_SESSION["telefono"]=$verificar->telefono;
-                    $_SESSION["referencia"]=$verificar->referencia;
+                    $_SESSION["noInterior"]=$verificarDirecciones->no_Interior;
+                    $_SESSION["noExterior"]=$verificarDirecciones->no_Exterior;
+                    $_SESSION["telefono"]=$verificarDirecciones->telefono;
+                    $_SESSION["referencia"]=$verificarDirecciones->referencia;
                 }
                 $verificarTarjeta=Usuario::verificarTarjeta($_SESSION["idUsuario"]);
-                if($verificarDirecciones){
-                    $_SESSION["folio_Tarjeta"]=$verificarDirecciones->id_Direccion;
-                    $_SESSION["fechVencimiento"]=$verificarDirecciones->nombre;
-                    $_SESSION["noSeguridad"]=$verificarDirecciones->calle;
-                    $_SESSION["compania"]=$verificar->no_Interior;
+                if($verificarTarjeta){
+                    $_SESSION["folio_Tarjeta"]=$verificarTarjeta->folio_Tarjeta;
+                    $_SESSION["fechVencimiento"]=$verificarTarjeta->fechVencimiento;
+                    $_SESSION["noSeguridad"]=$verificarTarjeta->noSeguridad;
+                    $_SESSION["compania"]=$verificarTarjeta->compania;
                 }
                 header("location:../../../repo/index.php?controller=Usuario&action=dologin");
             }else{

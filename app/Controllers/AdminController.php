@@ -8,7 +8,7 @@ class AdminController
         require "app/Views/admin/login.php";
     }
     function dologin(){
-        header("location:../../../repo/index.php?controller=Admin&action=login");
+        require "app/Views/admin/inicio.php";
     }
     function logout(){
         session_start();

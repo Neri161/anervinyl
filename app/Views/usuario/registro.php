@@ -83,7 +83,6 @@ if(isset($_SESSION["idUsuario"])){
                 </div>
                 <div class="row">
                     <div class="col-md-12" style="padding-bottom: 3%;">
-                        <!--<input type="submit" class="form-control btn-info" value="Enviar">-->
                        <button class="btn-success form-control" id="guardar">Guardar</button>
                         <div class="form-group">
                          <a href="index.php?controller=Usuario&action=login">¿Tienes una cuenta?</a>

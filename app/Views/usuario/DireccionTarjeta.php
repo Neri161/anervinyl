@@ -1,9 +1,11 @@
 <?php
-
-if(!isset($_SESSION["nombre"]))
+if(!isset($_SESSION["idUsuario"]))
     session_start();
-if(isset($_SESSION["nombre"])){
-    require 'app/Views/usuario/inicio.php';
+$varsesion='';
+if(isset($_SESSION["idUsuario"]))
+    $varsesion = $_SESSION["idUsuario"];
+if($varsesion==null || $varsesion=''){
+    require 'app/Views/usuario/login.php';
     die();
 }
 ?>

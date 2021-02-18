@@ -1,9 +1,8 @@
 <?php
-
     if(!isset($_SESSION["nombre"]))
         session_start();
     if(isset($_SESSION["nombre"])){
-        require 'app/Views/admin/inicio.php';
+        require 'app/Views/proveedor/inicio.php';
         die();
     }
 ?>

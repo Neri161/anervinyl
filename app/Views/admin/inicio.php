@@ -40,6 +40,7 @@ if($varsesion==null || $varsesion=''){
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroProveedor">Registrar Proveedor</a>
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroArtista">Registrar Artista</a>
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroCategoria">Registrar Categoria</a>
+
                 </div>
             </li>
         </ul>

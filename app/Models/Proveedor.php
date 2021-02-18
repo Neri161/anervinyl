@@ -29,4 +29,49 @@ class Proveedor extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
+    static function Categoriaall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM categorias");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
+    static function Artistaall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM artista");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
+    static function Tiposall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM tipos");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
+    static function Productosall($id)
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM productos WHERE Proveedor=?");
+        $pre->bind_param("i",$id);
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
 }

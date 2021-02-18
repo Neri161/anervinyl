@@ -1,7 +1,7 @@
 <?php
-    if(!isset($_SESSION["idProveedor"]))
+    if(!isset($_SESSION["idUsuario"]))
         session_start();
-    if(isset($_SESSION["idProveedor"])){
+    if(isset($_SESSION["idUsuario"])){
         require 'app/Views/usuario/inicio.php';
         die();
     }
@@ -29,7 +29,7 @@
                 echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';
             }
             ?>
-            <form action="index.php?controller=Proveedor&action=verificarCredenciales" method="post">
+            <form action="index.php?controller=Usuario&action=verificarCredenciales" method="post">
                 <div class="form-group">
                     <label for="">Correo</label>
                     <input type="text" name="correo" id="correo" class="form-control" placeholder="Correo" required>

@@ -4,8 +4,6 @@ if(!isset($_SESSION["idProveedor"]))
 $varsesion='';
 if(isset($_SESSION["idProveedor"]))
     $varsesion = $_SESSION["idProveedor"];
-
-
 if($varsesion==null || $varsesion=''){
     require 'app/Views/proveedor/login.php';
     die();
@@ -17,7 +15,7 @@ if($varsesion==null || $varsesion=''){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registro Proveedor</title>
+    <title>Registro Productos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../../repo/Public/css/inicio.css">
 </head>
@@ -72,72 +70,115 @@ if($varsesion==null || $varsesion=''){
 <main class="container-fluid">
     <div class="row registros">
         <div class="col-md-6" style="border: solid;" >
-            <form action="">
-                <h3 class="text-center">Registro de Proveedor</h3>
+            <form action="index.php?controller=Productos&action=verificarRegistro&Proveedor=<?php echo $_SESSION["idProveedor"];?>" method="post" enctype="multipart/form-data">
+                <h3 class="text-center">Registro de Productos</h3>
                 <br>
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="nombre">Nombre: </label>
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
-                        <label for="Categoria">Categoria: </label>
-                        <select name="select">
-                            <option value="value1">Seleccione Categoria</option>
+                        <label for="categoria">Categoria: </label>
+                        <select name="categoria" class="form-control" id="categoria">
+                            <?php
+                                if(isset($categoria)){
+                                    foreach ($categoria as $valor){
+                            ?>
+                            <option value="<?php echo $valor["id_Categoria"]; ?>"><?php echo $valor["nombre"]; ?></option>
+                            <?php
+                                }
+                                }
+                            ?>
                         </select>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="tipo">Tipo: </label>
-                        <select name="select">
-                            <option value="value1">Seleccione Tipo</option>
+                        <select name="tipo" id="tipo" class="form-control">
+                            <?php
+                            if(isset($tipos)){
+                            foreach ($tipos as $valor){
+                            ?>
+                            <option value="<?php echo $valor["id_Tipos"]; ?>" ><?php echo $valor["tipo"]; ?></option>
+                                <?php
+                            }
+                            }
+                            ?>
                         </select>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="artista">Artista: </label>
-                        <select name="select">
-                            <option value="value1">Seleccione Artista</option>
+                        <select name="artista" class="form-control">
+                            <?php
+                            if(isset($artista)){
+                            foreach ($artista as $valor){
+                            ?>
+                            <option value="<?php echo $valor["id_Artista"]; ?>"><?php echo $valor["nombre_Artistico"]; ?></option>
+                            <?php
+                            }
+                            }
+                            ?>
                         </select>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="precio">Precio: </label>
                         <input type="text" name="precio" id="precio" class="form-control" placeholder="Precio" required>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
                         <label for="stock">Stock: </label>
                         <input type="text" name="stock" id="stock" class="form-control" placeholder="Stock" required>
                     </div>
-                </div>
-                <br>
-                <div class="col-md-12">
                     <div class="form-group">
-                        <label for="anio">Anio: </label>
+                        <label for="anio">Año: </label>
                         <input type="text" name="anio" id="anio" class="form-control" placeholder="Anio" required>
                     </div>
+                <div class="form-group">
+                    <label for="foto">Foto del Producto</label>
+                    <input type="file" class="form-control-file" id="foto" name="image">
                 </div>
-                <br>
-                <div class="col-md-12" style="padding-bottom: 3%;">
+                <div class="form-group">
                     <button class="btn-success form-control" id="guardar">Guardar</button>
                 </div>
             </form>
         </div>
-        <div class="sidebar-datos col-md-6" style="border: solid; height: 100px;">
-            <h1>Hola</h1>
-            <h1>Hola</h1>
+        <div class="sidebar-datos col-md-6">
+            <div class="container-fluid">
+                <table class="table table-hover table-active" border="1">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>categoria</th>
+                        <th>artista</th>
+                        <th>Tipo</th>
+                        <th>precio</th>
+                        <th>stock</th>
+                        <th>anio</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    if(isset($productos)){
+                        foreach ($productos as $valor){
+                            ?>
+                            <tr>
+                                <td><?php echo $valor["id"];?></td>
+                                <td><?php echo $valor["nombre"];?></td>
+                                <td><?php echo $valor["categoria"];?></td>
+                                <td><?php echo $valor["tipo"];?></td>
+                                <td><?php echo $valor["artista"];?></td>
+                                <td><?php echo $valor["precio"];?></td>
+                                <td><?php echo $valor["stock"];?></td>
+                                <td><?php echo $valor["anio"];?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
         </div>
     </div>
 </main>
@@ -145,7 +186,5 @@ if($varsesion==null || $varsesion=''){
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="../../../repo/Public/js/verificacion.js"></script>
-<script src="../../../repo/Public/js/contrasenia.js"></script>
 </body>
 </html>

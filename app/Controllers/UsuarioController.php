@@ -35,6 +35,7 @@ class UsuarioController
         require "app/Views/usuario/login.php";
     }
     function dologin(){
+        $productos=Usuario::Productosall();
        require 'app/Views/usuario/inicio.php';
     }
     function logout(){

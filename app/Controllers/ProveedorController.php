@@ -7,7 +7,7 @@ class ProveedorController
         require "app/Views/proveedor/login.php";
     }
     function dologin(){
-        header("location:../../../repo/index.php?controller=Proveedor&action=login");
+        require "app/Views/proveedor/inicio.php";
     }
     function logout(){
         session_start();
@@ -47,4 +47,12 @@ class ProveedorController
             require "app/Views/proveedor/login.php";
         }
     }
+    function registrarProducto(){
+        $tipos=Proveedor::Tiposall();
+        $artista=Proveedor::Artistaall();
+        $categoria=Proveedor::Categoriaall();
+        $productos=Proveedor::Productosall($_GET["id"]);
+        require "app/Views/proveedor/registroProducto.php";
+    }
+
 }

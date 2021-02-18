@@ -90,20 +90,22 @@ if($varsesion==null || $varsesion=''){
     <br>
     <div class="row">
         <?php
-            for ($X=0; $X<=11; $X++){
+            if(isset($productos)){
+                foreach ($productos as $valor){
                 ?>
         <div class="col-md-3">
             <div class="card">
-                <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png">
+                <img class="card-img-top" src="data:<?php echo $valor['tipoi']; ?>;base64,<?php echo  base64_encode($valor['imagen']); ?>" width="200"></center>
                 <div class="card-body">
-                    <span>titulo del producto</span>
-                    <h5 class="card-title">$300</h5>
+                    <span><?php echo $valor['nombre']; ?></span>
+                    <h5 class="card-title">$<?php echo $valor['precio']; ?></h5>
                     <p class="card-text">Descripcion</p>
                     <button class="btn btn-primary" name="accion" value="agregar" type="submit">Agregar Al carrito</button>
                 </div>
             </div>
         </div>
         <?php
+            }
             }
         ?>
     </div>

@@ -38,4 +38,12 @@ class AdminController
         $proveedor=Admin::Proveedorall();
         require 'app/Views/admin/registroProveedor.php';
     }
+    function registroCategoria(){
+        $categoria=Admin::Categoriaall();
+        require 'app/Views/admin/RegistrarCategoria.php';
+    }
+    function registroArtista(){
+        $artista=Admin::Artistaall();
+        require 'app/Views/admin/RegistroArtista.php';
+    }
 }

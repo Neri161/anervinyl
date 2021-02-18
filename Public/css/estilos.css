@@ -36,4 +36,20 @@
     background-color: rgb(255,159,82);
     color: white;
 }
+#formulario-p{
+    border:0.5px solid white;
+    background-color: rgb(254,194,108);
+}
+#contenedor-p{
+    margin-top: 2%;
+    padding: 10px;
 
+}
+#contenedor-2-p{
+    padding: 10px;
+    background-color: rgb(254,194,108);
+}
+#btn-p{
+    background-color: rgb(254,194,108);
+    color: white;
+}

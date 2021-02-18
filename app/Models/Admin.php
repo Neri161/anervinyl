@@ -33,4 +33,26 @@ class Admin extends Conexion
         }
         return $t;
     }
+    static function Categoriaall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM categorias");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
+    static function Artistaall()
+    {
+        $conexion = new Conexion();
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM artista");
+        $pre->execute();
+        $resultado = $pre->get_result();
+        while ($y=mysqli_fetch_assoc($resultado)){
+            $t[]=$y;
+        }
+        return $t;
+    }
 }

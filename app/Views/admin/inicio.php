@@ -24,7 +24,7 @@ if($varsesion==null || $varsesion=''){
 <body>
 <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Aner Vinyl </a>
+    <a class="navbar-brand" href="../../../repo/index.php?controller=Admin&action=login">Aner Vinyl </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,9 +38,8 @@ if($varsesion==null || $varsesion=''){
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroProveedor">Registrar Proveedor</a>
-                    <a class="dropdown-item" href="#">Registrar Artista</a>
-                    <a class="dropdown-item" href="#">Registrar Categoria</a>
-                    <a class="dropdown-item" href="#">Registrar </a>
+                    <a class="dropdown-item" href="index.php?controller=Admin&action=registroArtista">Registrar Artista</a>
+                    <a class="dropdown-item" href="index.php?controller=Admin&action=registroCategoria">Registrar Categoria</a>
                 </div>
             </li>
         </ul>
@@ -60,8 +59,6 @@ if($varsesion==null || $varsesion=''){
                     ?>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=perfil">Perfil</a>
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=logout">Cerrar Sesion</a>
                 </div>
             </li>
@@ -73,26 +70,6 @@ if($varsesion==null || $varsesion=''){
     <br>
     <h5 class="text-center">BIenvenido Administrador <?php echo $_SESSION["nombre"]; ?></h5>
     <center><img class="img-responsive col-md-6" src="../../../../repo/Public/img/logo.jpeg" alt="usuario" width="70px"></center>
-    <div class="row">
-
-        <!--<?php
-        for ($X=0; $X<=11; $X++){
-            ?>
-            <div class="col-md-3">
-                <div class="card">
-                    <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png" >
-                    <div class="card-body">
-                        <span>titulo del producto</span>
-                        <h5 class="card-title">$300</h5>
-                        <p class="card-text">Descripcion</p>
-                        <button class="btn btn-primary" name="accion" value="agregar" type="submit">Agregar Al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <?php
-        }
-        ?>-->
-    </div>
 </div>
 
 

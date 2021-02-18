@@ -23,7 +23,7 @@ class Proveedor extends Conexion
     static function vereficarProveedor($correo)
     {
         $conexion = new Conexion();
-        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM proveedor WHERE nombre=?");
+        $pre = mysqli_prepare($conexion->conexion,"SELECT * FROM proveedor WHERE correo=?");
         $pre->bind_param("s", $correo);
         $pre->execute();
         $resultado = $pre->get_result();

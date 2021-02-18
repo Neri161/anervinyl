@@ -1,11 +1,13 @@
 <?php
-if(!isset($_SESSION["idAdmin"]))
+if(!isset($_SESSION["idProveedor"]))
     session_start();
 $varsesion='';
-if(isset($_SESSION["idAdmin"]))
-    $varsesion = $_SESSION["idAdmin"];
+if(isset($_SESSION["idProveedor"]))
+    $varsesion = $_SESSION["idProveedor"];
+
+
 if($varsesion==null || $varsesion=''){
-    require 'app/Views/usuario/login.php';
+    require 'app/Views/proveedor/login.php';
     die();
 }
 ?>

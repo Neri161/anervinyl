@@ -21,24 +21,30 @@ class ProveedorController
         $proveedor->correo=$_POST["correo"];
         $proveedor->contraseña=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
         $proveedor->crear();
-        require "app/Views/admin/registroProveedor.php";
+        header("location:../../../repo/index.php?controller=Admin&action=registroProveedor");
     }
     function verificarCredenciales(){
         if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
-            echo "Datos incorrectos";
-            return false;
+            $estatus="Datos incorectos";
+            require "app/Views/proveedor/login.php";
         }
         $correo=$_POST["correo"];
         $contrasenia=$_POST["contrasenia"];
         $verificar = Proveedor::vereficarProveedor($correo);
+        var_dump($verificar);
         if ($verificar){
-            session_start();
-            $_SESSION["idProveedor"]=$verificar->id_proveedor;
-            $_SESSION["nombre"]=$verificar->nombre_proveedor;
-            header("location:../../../repo/index.php?controller=Proveedor&action=dologin");
+            if(password_verify($contrasenia,$verificar->contrasenia)){
+                session_start();
+                $_SESSION["idProveedor"]=$verificar->id_Proveedor;
+                $_SESSION["nombre"]=$verificar->nombre_Proveedor;
+                header("location:../../../repo/index.php?controller=Proveedor&action=dologin");
+            }else{
+                $Contrasenia="La contraseña es incorrecta";
+                require "app/Views/proveedor/login.php";
+            }
         }else{
             $estatus="Datos incorectos";
-            require "app/Views/admin/login.php";
+            require "app/Views/proveedor/login.php";
         }
     }
 }

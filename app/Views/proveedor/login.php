@@ -1,9 +1,9 @@
 <?php
 
-    if(!isset($_SESSION["nombre"]))
+    if(!isset($_SESSION["idProveedor"]))
         session_start();
-    if(isset($_SESSION["nombre"])){
-        require 'app/Views/admin/inicio.php';
+    if(isset($_SESSION["idProveedor"])){
+        require 'app/Views/proveedor/inicio.php';
         die();
     }
 ?>
@@ -20,11 +20,11 @@
 </head>
 <body>
 
-<div class="container col-md-12" id="contenedor-admin">
-    <div class="container col-md-offset-4 col-md-4" id="contenedor-2-admin">
-        <div class="panel panel-body col-md-12" id="formulario-admin">
+<div class="container col-md-12" id="contenedor-p">
+    <div class="container col-md-offset-4 col-md-4" id="contenedor-2-p">
+        <div class="panel panel-body col-md-12" id="formulario-p">
             <br>
-            <center><img src="../../../../repo/Public/img/2.png" alt="usuario" width="70px"></center>
+            <center><img src="../../../../repo/Public/img/3.png" alt="usuario" width="70px"></center>
             <?php
             if(isset($estatus)){
                 echo '<h5 class="alert-danger text-center">'.$estatus.'</h5>';
@@ -44,14 +44,13 @@
                     }
                     ?>
                 </div>
-                    <div class="form-group">
-                        <button class="btn form-control" id="btn-admin">Ingresar</button>
-                    </div>
+                <div class="form-group">
+                    <button class="btn form-control" id="btn-admin">Ingresar</button>
+                </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <a href="">¿Olvidaste tu contraseña?</a>
                         <div class="row"></div>
-                        <a href="index.php?controller=Usuario&action=registro">Crear cuenta</a>
                     </div>
                 </div>
             </form>

@@ -1,13 +1,13 @@
 <?php
-if(!isset($_SESSION["idAdmin"]))
+if(!isset($_SESSION["idProveedor"]))
     session_start();
 $varsesion='';
-if(isset($_SESSION["idAdmin"]))
-    $varsesion = $_SESSION["idAdmin"];
+if(isset($_SESSION["idProveedor"]))
+    $varsesion = $_SESSION["idProveedor"];
 
 
 if($varsesion==null || $varsesion=''){
-    require 'app/Views/Admin/login.php';
+    require 'app/Views/proveedor/login.php';
     die();
 }
 ?>
@@ -61,9 +61,7 @@ if($varsesion==null || $varsesion=''){
                     ?>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=perfil">Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=logout">Cerrar Sesion</a>
+                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=logout">Cerrar Sesion</a>
                 </div>
             </li>
         </ul>
@@ -72,7 +70,7 @@ if($varsesion==null || $varsesion=''){
 
 <div class="container">
     <br>
-    <h5 class="text-center">BIenvenido Administrador <?php echo $_SESSION["nombre"]; ?></h5>
+    <h5 class="text-center">Bienvenido Proveedor <?php echo $_SESSION["nombre"]; ?></h5>
     <center><img class="img-responsive col-md-6" src="../../../../repo/Public/img/logo.jpeg" alt="usuario" width="70px"></center>
     <div class="row">
 

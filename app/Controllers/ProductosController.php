@@ -24,4 +24,5 @@ class ProductosController
         $productos->crear();
         header("location:../../../repo/index.php?controller=Proveedor&action=registrarProducto&id=$proveedor");
     }
+
 }

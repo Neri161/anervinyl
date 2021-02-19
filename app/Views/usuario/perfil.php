@@ -78,7 +78,6 @@ if($varsesion==null || $varsesion=''){
                         <?php
                     }
                     ?>
-
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a>
                 </div>
@@ -86,7 +85,6 @@ if($varsesion==null || $varsesion=''){
         </ul>
     </div>
 </nav>
-
 <div class="container">
     <br>
     <form action="index.php?controller=Usuario&action=actualizarFoto&id=<?php echo $_SESSION['idUsuario']; ?>" method="post" enctype="multipart/form-data">

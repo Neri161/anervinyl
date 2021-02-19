@@ -1,16 +1,3 @@
-<?php
-if(!isset($_SESSION["idAdmin"]))
-    session_start();
-$varsesion='';
-if(isset($_SESSION["idAdmin"]))
-    $varsesion = $_SESSION["idAdmin"];
-
-
-if($varsesion==null || $varsesion=''){
-    require 'app/Views/Admin/login.php';
-    die();
-}
-?>
 <!doctype html>
 <html lang="en">
 <head>

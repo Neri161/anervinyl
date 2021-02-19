@@ -1,14 +1,3 @@
-<?php
-if(!isset($_SESSION["idAdmin"]))
-    session_start();
-$varsesion='';
-if(isset($_SESSION["idAdmin"]))
-    $varsesion = $_SESSION["idAdmin"];
-if($varsesion==null || $varsesion=''){
-    require 'app/Views/admin/login.php';
-    die();
-}
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,6 +28,7 @@ if($varsesion==null || $varsesion=''){
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroProveedor">Registrar Proveedor</a>
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroArtista">Registrar Artista</a>
                     <a class="dropdown-item" href="index.php?controller=Admin&action=registroCategoria">Registrar Categoria</a>
+
                 </div>
             </li>
         </ul>

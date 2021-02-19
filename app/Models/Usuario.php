@@ -27,7 +27,6 @@ class Usuario extends Conexion
     }
     function actualizarFoto($id)
     {
-        $this -> fecha_registro = date("Y-m-d");
         $pre = mysqli_prepare($this->conexion, "UPDATE usuarios SET foto=?,tipo=? WHERE id_usuario=?");
         $pre->bind_param("sss", $this->foto,$this->tipo,$id);
         $pre->execute();

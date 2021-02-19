@@ -109,7 +109,7 @@ class UsuarioController
         $usuario->actualizarFoto($_GET["id"]);
         session_start();
         $_SESSION["foto"]=$binarioImagen;
-        $_SESSION["tipo"]='image/'.$_FILES['image']['type'];
+        $_SESSION["tipo"]=$_FILES['image']['type'];
         header("location:../../../repo/index.php?controller=Usuario&action=perfil");
     }
 }

@@ -42,9 +42,6 @@ if($varsesion==null || $varsesion=''){
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
                 </ul>
                 <!--Busqueda -->
                 <form class="form-inline my-2 my-lg-0">
@@ -54,7 +51,7 @@ if($varsesion==null || $varsesion=''){
                 <!--Elementos de la derecha -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carrito</a>
+                        <a class="nav-link" href="#">Carrito(0)</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
@@ -78,7 +75,6 @@ if($varsesion==null || $varsesion=''){
                                 <?php
                             }
                             ?>
-
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a>
                         </div>
@@ -99,8 +95,16 @@ if($varsesion==null || $varsesion=''){
                 <div class="card-body">
                     <span><?php echo $valor['nombre']; ?></span>
                     <h5 class="card-title">$<?php echo $valor['precio']; ?></h5>
-                    <p class="card-text">Descripcion</p>
-                    <button class="btn btn-primary" name="accion" value="agregar" type="submit">Agregar Al carrito</button>
+                    <p class="card-text">
+                        <?php if($valor['tipo']=="1"){echo "CD";}else{echo "Vinyl";} ?>
+                    </p>
+                    <form action="index.php?controller=Envio&action=comprar" method="post">
+                        <div class="mostrar">
+                            <input type="text" class="carrito" name="id" id="id" value="<?php echo $valor['id']; ?>">
+                            <input type="text" class="carrito" name="idusuario" id="id" value="<?php echo $_SESSION["idUsuario"];?>">
+                        </div>
+                        <button class="btn btn-primary form-control" name="accion" value="agregar" id="agregar" type="submit">Comprar</button>
+                    </form>
                 </div>
             </div>
         </div>

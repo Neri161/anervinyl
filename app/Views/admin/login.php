@@ -1,11 +1,3 @@
-<?php
-    if(!isset($_SESSION["nombre"]))
-        session_start();
-    if(isset($_SESSION["nombre"])){
-        require 'app/Views/proveedor/inicio.php';
-        die();
-    }
-?>
 <!doctype html>
 <html lang="en">
 <head>

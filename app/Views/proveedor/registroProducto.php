@@ -22,7 +22,7 @@ if($varsesion==null || $varsesion=''){
 <body>
 <!-- Navbar en la parte superior que se deliza lo largo de la pagina -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Aner Vinyl </a>
+    <a class="navbar-brand" href="../../../repo/index.php?controller=Proveedor&action=login">Aner Vinyl </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,11 +35,9 @@ if($varsesion==null || $varsesion=''){
                     Acciones
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.php?controller=Admin&action=registroProveedor">Registrar Proveedor</a>
-                    <a class="dropdown-item" href="#">Registrar Artista</a>
-                    <a class="dropdown-item" href="#">Elimar Usuario</a>
-                    <a class="dropdown-item" href="#">Elimar Producto</a>
-                    <a class="dropdown-item" href="#">Elimar Proveedor</a>
+                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=registrarProducto&id=<?php echo $_SESSION["idProveedor"];?>">Registrar Producto</a>
+                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=login">Actualizar Stock</a>
+                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=login">Actualizar Precio</a>
                 </div>
             </li>
         </ul>
@@ -59,9 +57,7 @@ if($varsesion==null || $varsesion=''){
                     ?>
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=perfil">Perfil</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Admin&action=logout">Cerrar Sesion</a>
+                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=logout">Cerrar Sesion</a>
                 </div>
             </li>
         </ul>

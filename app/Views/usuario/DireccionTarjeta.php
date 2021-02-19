@@ -72,13 +72,12 @@ if($varsesion==null || $varsesion=''){
                         <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=registroDatos">Agregar Direccion</a>
                         <?php
                     }
-                    if(!isset($_SESSION["idTarjeta"])){
+                    if(!isset($_SESSION["folio_Tarjeta"])){
                         ?>
                         <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=registroDatos">Agregar Tarjeta</a>
                         <?php
                     }
                     ?>
-
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="../../../repo/index.php?controller=Usuario&action=logout">Cerrar Sesion</a>
                 </div>

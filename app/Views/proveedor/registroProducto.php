@@ -69,7 +69,7 @@ if($varsesion==null || $varsesion=''){
 </nav>
 <main class="container-fluid">
     <div class="row registros">
-        <div class="col-md-6" style="border: solid;" >
+        <div class="col-md-6" >
             <form action="index.php?controller=Productos&action=verificarRegistro&Proveedor=<?php echo $_SESSION["idProveedor"];?>" method="post" enctype="multipart/form-data">
                 <h3 class="text-center">Registro de Productos</h3>
                 <br>

@@ -46,13 +46,6 @@
                     <div class="form-group">
                         <button class="btn form-control" id="btn-admin">Ingresar</button>
                     </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <a href="">¿Olvidaste tu contraseña?</a>
-                        <div class="row"></div>
-                        <a href="index.php?controller=Usuario&action=registro">Crear cuenta</a>
-                    </div>
-                </div>
             </form>
         </div>
     </div>

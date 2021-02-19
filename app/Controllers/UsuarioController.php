@@ -94,4 +94,22 @@ class UsuarioController
     function registroDatos(){
         require "app/Views/usuario/DireccionTarjeta.php";
     }
+    function verificarDT(){
+        $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
+    }
+    function actualizarFoto(){
+        $usuario = new Usuario();
+
+        $nombre=$_FILES['image']['name'];
+        $tamanio=$_FILES['image']['size'];
+        $imagenSubida=fopen($_FILES['image']['tmp_name'],'r');
+        $binarioImagen=fread($imagenSubida,$tamanio);
+        $usuario->tipo=$_FILES['image']['type'];
+        $usuario->foto=$binarioImagen;
+        $usuario->actualizarFoto($_GET["id"]);
+        session_start();
+        $_SESSION["foto"]=$binarioImagen;
+        $_SESSION["tipo"]=$_FILES['image']['type'];
+        header("location:../../../repo/index.php?controller=Usuario&action=perfil");
+    }
 }

@@ -125,7 +125,7 @@ if($varsesion==null || $varsesion=''){
         }
         if(!isset($_SESSION["folio_Tarjeta"])){
             ?>
-            <form action="index.php?controller=Tarjeta&action=verificarRegistro" method="post">
+            <form action="index.php?controller=Tarjeta&action=verificarRegistro&id=<?php echo $_SESSION["idUsuario"];?>" method="post">
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="nombre">Folio de Tarjeta: </label>

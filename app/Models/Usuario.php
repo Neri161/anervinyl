@@ -17,11 +17,19 @@ class Usuario extends Conexion
     {
         parent::__construct();
     }
+
     function crear()
     {
         $this -> fecha_registro = date("Y-m-d");
         $pre = mysqli_prepare($this->conexion, "INSERT INTO usuarios (nombre,apellido_paterno,apellido_materno, correo,contrasenia,fecha_registro,foto,tipo) VALUES(?,?,?,?,?,?,?,?)");
         $pre->bind_param("ssssssss", $this->nombre, $this->apellidoPaterno, $this->apellidoMaterno, $this->correo, $this->contrasenia, $this->fecha_registro,$this->foto,$this->tipo);
+        $pre->execute();
+    }
+    function actualizarFoto($id)
+    {
+        $this -> fecha_registro = date("Y-m-d");
+        $pre = mysqli_prepare($this->conexion, "UPDATE usuarios SET foto=?,tipo=? WHERE id_usuario=?");
+        $pre->bind_param("sss", $this->foto,$this->tipo,$id);
         $pre->execute();
     }
     static function vereficarUsuario($correo)

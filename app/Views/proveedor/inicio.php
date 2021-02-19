@@ -71,24 +71,19 @@ if($varsesion==null || $varsesion=''){
     <h5 class="text-center">Bienvenido Proveedor <?php echo $_SESSION["nombre"]; ?></h5>
     <center><img class="img-responsive col-md-6" src="../../../../repo/Public/img/logo.jpeg" alt="usuario" width="70px"></center>
     <div class="row">
-
-        <!--<?php
-        for ($X=0; $X<=11; $X++){
+        <ul class="galeria">
+        <?php
+        if(isset($imagenes)){
+        foreach ($imagenes as $valor){
             ?>
-            <div class="col-md-3">
-                <div class="card">
-                    <img class="card-img-top" title="Titulo del producto" alt="titulo" src="https://www.clicktoprint.cl/site/uploads/productos/COLGANTE%20FOMECOR-04.png" >
-                    <div class="card-body">
-                        <span>titulo del producto</span>
-                        <h5 class="card-title">$300</h5>
-                        <p class="card-text">Descripcion</p>
-                        <button class="btn btn-primary" name="accion" value="agregar" type="submit">Agregar Al carrito</button>
-                    </div>
-                </div>
-            </div>
+            <li> <a href="#img1"><img src="data:<?php echo $valor['tipo']; ?>;base64,<?php echo  base64_encode($valor['foto']); ?>"</a></li>
+            <li> <a href="#img2"><img src="data:<?php echo $valor['tipo']; ?>;base64,<?php echo  base64_encode($valor['foto']); ?>"></a></li>
+             <li> <a href="#img3"><img src="data:<?php echo $valor['tipo']; ?>;base64,<?php echo  base64_encode($valor['foto']); ?>"></a></li>
             <?php
         }
-        ?>-->
+        }
+        ?>
+        </ul>
     </div>
 </div>
 

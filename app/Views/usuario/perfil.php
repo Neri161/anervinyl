@@ -89,31 +89,39 @@ if($varsesion==null || $varsesion=''){
 
 <div class="container">
     <br>
-    <center><img class="col-3 img-responsive" src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>" style="border-radius:100px;"></center>
+    <form action="index.php?controller=Usuario&action=actualizarFoto&id=<?php echo $_SESSION['idUsuario']; ?>" method="post" enctype="multipart/form-data">
+        <div class="image-upload">
+            <center><label for="file-input">
+                    <img  src="data:<?php echo $_SESSION['tipo']; ?>;base64,<?php echo  base64_encode($_SESSION['foto']); ?>" alt ="Click aquí para subir tu foto" title ="Click aquí para subir tu foto"
+                         data-toggle="popover"
+                         data-content="Cambiar Foto">
+                </label></center>
+            <input id="file-input" name="image" type="file" required/>
+
+        </div>
+        <div class="mostrar" id="mostrar">
+            <center><button  class="btn btn-success form-control col-md-3" style="margin-bottom: 3%;" id="guardar">Actualizar Foto</button></center>
+        </div>
+
+    </form>
     <br>
-        <form name="form" action="" method="post" enctype="multipart/form-data">
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="nombre">Nombre: </label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required value="<?php echo $_SESSION['nombre']; ?>">
+                    <input type="text" name="nombre" id="nombre" readonly class="form-control" placeholder="Nombre" required value="<?php echo $_SESSION['nombre']; ?>">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="paterno">Apellido Paterno: </label>
-                    <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Apellido Paterno" required value="<?php echo $_SESSION['apellidoPaterno']; ?>">
+                    <input type="text" name="paterno" id="paterno" readonly class="form-control" placeholder="Apellido Paterno" required value="<?php echo $_SESSION['apellidoPaterno']; ?>">
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label for="materno">Apellido Materno: </label>
-                    <input type="text" name="materno" id="materno" class="form-control" placeholder="Apellido Materno" required value="<?php echo $_SESSION['apellidoMaterno']; ?>">
+                    <input type="text" name="materno" id="materno" readonly class="form-control" placeholder="Apellido Materno" required value="<?php echo $_SESSION['apellidoMaterno']; ?>">
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="materno">Foto De Perfil: </label>
-                    <input type="file" class="form-control" id="image" name="image">
-                </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                     <label for="correo">Correo:</label>
                     <input type="email" id="correo" name="correo" readonly class="form-control" value="<?php echo $_SESSION['correo']; ?>">
+
                 </div>
             </div>
             <?php
@@ -122,30 +130,30 @@ if($varsesion==null || $varsesion=''){
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="nombre">CP: </label>
-                        <input type="text" name="CP" id="CP" class="form-control" placeholder="CP" value="<?php echo $_SESSION['CP']; ?>" required>
+                        <input type="text" name="CP" id="CP" readonly class="form-control" placeholder="CP" value="<?php echo $_SESSION['CP']; ?>" required>
                     </div>
                     <div class="form-group col-md-8">
                         <label for="nombre">Calle: </label>
-                        <input type="text" name="calle" id="calle" class="form-control" placeholder="calle" value="<?php echo $_SESSION['calle']; ?>" required>
+                        <input type="text" name="calle" id="calle" readonly class="form-control" placeholder="calle" value="<?php echo $_SESSION['calle']; ?>" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label for="nombre">No. Interior: </label>
-                        <input type="text" name="no_Interior" id="no_Interior" class="form-control" placeholder="No. Interior" value="<?php echo $_SESSION['noInterior']; ?>" required>
+                        <input type="text" name="no_Interior" id="no_Interior" readonly class="form-control" placeholder="No. Interior" value="<?php echo $_SESSION['noInterior']; ?>" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="nombre">No. Exterior: </label>
-                        <input type="text" name="no_Exterior" id="no_Exterior" class="form-control" placeholder="No. Exterior" value="<?php echo $_SESSION['noExterior']; ?>" required>
+                        <input type="text" name="no_Exterior" id="no_Exterior" readonly class="form-control" placeholder="No. Exterior" value="<?php echo $_SESSION['noExterior']; ?>" required>
                     </div>
                     <div class="form-group col-6">
                         <label for="nombre">Telefono: </label>
-                        <input type="text" name="telefono" id="telefono" class="form-control" placeholder="Telefono" value="<?php echo $_SESSION['telefono']; ?>" required>
+                        <input type="text" name="telefono" id="telefono" readonly class="form-control" placeholder="Telefono" value="<?php echo $_SESSION['telefono']; ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Referencia: </label>
-                    <input type="text" name="referencia" id="referencia" class="form-control" placeholder="Referencia" value="<?php echo $_SESSION['referencia']; ?>" required>
+                    <input type="text" name="referencia" id="referencia" readonly class="form-control" placeholder="Referencia" value="<?php echo $_SESSION['referencia']; ?>" required>
                 </div>
                 <?php
             }
@@ -154,36 +162,36 @@ if($varsesion==null || $varsesion=''){
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="nombre">Folio de Tarjeta: </label>
-                        <input type="text" name="folio_Tarjeta" id="folio_Tarjeta" class="form-control" placeholder="Folio de Tarjeta" required>
+                        <input type="text" name="folio_Tarjeta" id="folio_Tarjeta" readonly class="form-control" placeholder="Folio de Tarjeta" value="<?php echo $_SESSION['folio_Tarjeta']; ?>" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="nombre ">Fecha de Vencimiento: </label>
-                        <input type="text" name="fech_Vencimineto" id="fech_Vencimiento" class="form-control" placeholder="Fecha de Vencimiento" required>
+                        <input type="text" name="fech_Vencimineto" id="fech_Vencimiento" readonly class="form-control" placeholder="Fecha de Vencimiento" value="<?php echo $_SESSION['fechVencimiento']; ?>" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="nombre">Numero de Seguridad: </label>
-                        <input type="text" name="noSeguridad" id="noSeguridad" class="form-control" placeholder="Numero de Seguridad" required>
+                        <input type="text" name="noSeguridad" id="noSeguridad" readonly class="form-control" placeholder="Numero de Seguridad" value="<?php echo $_SESSION['noSeguridad']; ?>" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="nombre">Compañia: </label>
-                        <input type="text" name="compania" id="compania" class="form-control" placeholder="Compañia" required>
+                        <input type="text" name="compania" id="compania" readonly class="form-control" placeholder="Compañia" value="<?php echo $_SESSION['compania']; ?>" required>
                     </div>
                 </div>
                 <?php
             }
             ?>
-            <button class="btn btn-success form-control" style="margin-bottom: 3%;" id="guardar">Actualizar Datos</button>
-
-        </form>
+    <form name="form" action="" method="post" enctype="multipart/form-data">
+        <button class="btn btn-success form-control" style="margin-bottom: 3%;" id="guardar">Actualizar Datos</button>
+    </form>
     </div>
 </div>
-
 
 <script src="../../../repo/Public/js/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="../../../repo/Public/js/foto.js"></script>
 </body>
 </html>

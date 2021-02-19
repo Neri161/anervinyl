@@ -4,17 +4,16 @@ use Models\Tarjeta;
 
 class TarjetaController
 {
+
     function verificarRegistro(){
-        function verificarRegistro(){
-            $usario = new Usuario();
-            $usario->nombre=$_POST["nombre"];
-            $usario->apellidoPaterno=$_POST["paterno"];
-            $usario->apellidoMaterno=$_POST["materno"];
-            $usario->correo=$_POST["correo"];
-            $usario->contrasenia=password_hash($_POST["contrasenia"],PASSWORD_DEFAULT,['cost' => 5]);
-            $usario->foto=$binariosImagen;
-            $usario->tipo='image/jpg';
-            $usario->crear();
-        }
+        $tarjeta = new Tarjeta();
+        $tarjeta->folio_Tarjeta=$_POST["folio_Tarjeta"];
+        $tarjeta->fechVencimiento=$_POST["fech_Vencimineto"];
+        $tarjeta->noSeguridad=$_POST["noSeguridad"];
+        $tarjeta->compania=$_POST["compania"];
+        $tarjeta->id_Usuario=$_GET["id"];
+        $tarjeta->crear();
+
     }
+
 }

@@ -13,7 +13,7 @@ class TarjetaController
         $tarjeta->compania=$_POST["compania"];
         $tarjeta->id_Usuario=$_GET["id"];
         $tarjeta->crear();
-
+        header("location:../../../repo/index.php?controller=Usuario&action=verificarDT");
     }
 
 }

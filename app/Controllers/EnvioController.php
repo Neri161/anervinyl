@@ -7,10 +7,11 @@ class EnvioController
 {
     function comprar(){
         $compra = new Envio();
-        $compra->idU=$_POST["idusuario"];
-        $compra->idProducto=$_POST["id"];
+        $producto=$_POST["id"];
+        $compra->idU=$_POST["idDireccion"];
+        $compra->idProducto=$producto;
         $compra->estatus='enviado';
-        var_dump($compra);
         $compra->crear();
+        header("location:../../../repo/index.php?controller=Productos&action=stock&id=$producto");
     }
 }

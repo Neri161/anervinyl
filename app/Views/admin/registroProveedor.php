@@ -1,3 +1,17 @@
+<?php
+error_reporting(0);
+if(!isset($_SESSION["idAdmin"]))
+    session_start();
+$varsesion='';
+if(isset($_SESSION["idAdmin"]))
+    $varsesion = $_SESSION["idAdmin"];
+
+
+if($varsesion==null || $varsesion=''){
+    require 'app/Views/admin/login.php';
+    die();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>

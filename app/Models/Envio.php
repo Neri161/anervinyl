@@ -20,7 +20,6 @@ class Envio extends Conexion
         $pre = mysqli_prepare($this->conexion, "INSERT INTO envio(id_UD,id_Producto,estatus) VALUES (?,?,?)");
         $pre->bind_param("sss", $this->idU, $this->idProducto, $this->estatus);
         $pre->execute();
-        $pre->execute();
     }
 
 }

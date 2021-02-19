@@ -1,3 +1,11 @@
+<?php
+if(!isset($_SESSION["idAdmin"]))
+    session_start();
+if(isset($_SESSION["idAdmin"])){
+    require 'app/Views/admin/inicio.php';
+    die();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>

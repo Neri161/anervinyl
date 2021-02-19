@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if(!isset($_SESSION["idUsuario"]))
     session_start();
 $varsesion='';
@@ -95,7 +96,6 @@ if($varsesion==null || $varsesion=''){
                          data-content="Cambiar Foto">
                 </label></center>
             <input id="file-input" name="image" type="file" required/>
-
         </div>
         <div class="mostrar" id="mostrar">
             <center><button  class="btn btn-success form-control col-md-3" style="margin-bottom: 3%;" id="guardar">Actualizar Foto</button></center>

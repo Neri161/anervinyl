@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if(!isset($_SESSION["idUsuario"]))
     session_start();
 $varsesion='';
@@ -51,7 +52,7 @@ if($varsesion==null || $varsesion=''){
                 <!--Elementos de la derecha -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carrito(0)</a>
+                        <a class="nav-link" href="../../../repo/index.php?controller=Usuario&action=carrito">Carrito(0)</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="true">
@@ -101,10 +102,17 @@ if($varsesion==null || $varsesion=''){
                     <form action="index.php?controller=Envio&action=comprar" method="post">
                         <div class="mostrar">
                             <input type="text" class="carrito" name="id" id="id" value="<?php echo $valor['id']; ?>">
-                            <input type="text" class="carrito" name="idusuario" id="id" value="<?php echo $_SESSION["idUsuario"];?>">
+                            <input type="text" class="carrito" name="idDireccion" id="id" value="<?php echo $_SESSION["idDireccion"];?>">
                         </div>
+                        <?php
+                        if(isset($_SESSION["idDireccion"]) && isset($_SESSION["folio_Tarjeta"])){?>
                         <button class="btn btn-primary form-control" name="accion" value="agregar" id="agregar" type="submit">Comprar</button>
-                    </form>
+                            <?php
+                        }else{
+                            echo "<i>Agrega tarjeta o Direccion</i>";
+                        }
+                            ?>
+                            </form>
                 </div>
             </div>
         </div>

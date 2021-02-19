@@ -28,7 +28,7 @@ class Producto extends Conexion
     }
     static function actualizarStock($id){
         $conexion = new  Conexion();
-        $pre = mysqli_prepare($conexion, "UPDATE productos SET stock=stock-1 WHERE id=?");
+        $pre = mysqli_prepare($conexion->conexion, "UPDATE productos SET stock=stock-1 WHERE id=?");
         $pre->bind_param("s", $id);
         $pre->execute();
     }

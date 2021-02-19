@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
     if(!isset($_SESSION["idProveedor"]))
         session_start();
     if(isset($_SESSION["idProveedor"])){

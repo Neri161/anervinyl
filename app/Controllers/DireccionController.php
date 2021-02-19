@@ -14,5 +14,6 @@ class DireccionController
         $direccion->referencia=$_POST["referencia"];
         $direccion->id_Usuario=$_GET["id"];
         $direccion->crear();
+        header("location:../../../repo/index.php?controller=Usuario&action=verificarDT");
     }
 }

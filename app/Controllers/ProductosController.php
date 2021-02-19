@@ -24,5 +24,8 @@ class ProductosController
         $productos->crear();
         header("location:../../../repo/index.php?controller=Proveedor&action=registrarProducto&id=$proveedor");
     }
-
+    function stock(){
+        $actualizar=Producto::actualizarStock($_GET["id"]);
+        header("location:../../../repo/index.php?controller=Usuario&action=dologin");
+    }
 }

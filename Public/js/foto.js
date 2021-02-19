@@ -3,5 +3,4 @@ $(document).ready(function (){
     var imagen=$("#mostrar").val();
         $("#mostrar").css("display","block");
     });
-
 });

@@ -95,7 +95,25 @@ class UsuarioController
         require "app/Views/usuario/DireccionTarjeta.php";
     }
     function verificarDT(){
+        session_start();
         $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
+        if($verificarDirecciones){
+            $_SESSION["idDireccion"]=$verificarDirecciones->id_Direccion;
+            $_SESSION["CP"]=$verificarDirecciones->CP;
+            $_SESSION["calle"]=$verificarDirecciones->calle;
+            $_SESSION["noInterior"]=$verificarDirecciones->no_Interior;
+            $_SESSION["noExterior"]=$verificarDirecciones->no_Exterior;
+            $_SESSION["telefono"]=$verificarDirecciones->telefono;
+            $_SESSION["referencia"]=$verificarDirecciones->referencia;
+        }
+        $verificarTarjeta=Usuario::verificarTarjeta($_SESSION["idUsuario"]);
+        if($verificarTarjeta){
+            $_SESSION["folio_Tarjeta"]=$verificarTarjeta->folio_Tarjeta;
+            $_SESSION["fechVencimiento"]=$verificarTarjeta->fechVencimiento;
+            $_SESSION["noSeguridad"]=$verificarTarjeta->noSeguridad;
+            $_SESSION["compania"]=$verificarTarjeta->compania;
+        }
+        header("location:../../../repo/index.php?controller=Usuario&action=registroDatos");
     }
     function actualizarFoto(){
         $usuario = new Usuario();
@@ -111,5 +129,10 @@ class UsuarioController
         $_SESSION["foto"]=$binarioImagen;
         $_SESSION["tipo"]=$_FILES['image']['type'];
         header("location:../../../repo/index.php?controller=Usuario&action=perfil");
+    }
+    function carrito(){
+        $productos=Usuario::Productosall();
+        $envio=Usuario::envioAll();
+        require "app/Views/usuario/carrito.php";
     }
 }

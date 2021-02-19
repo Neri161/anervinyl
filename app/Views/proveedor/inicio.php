@@ -39,8 +39,9 @@ if($varsesion==null || $varsesion=''){
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=registrarProducto&id=<?php echo $_SESSION["idProveedor"];?>">Registrar Producto</a>
-                    <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=login">Actualizar Stock</a>
+                   <!-- <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=login">Actualizar Stock</a>
                     <a class="dropdown-item" href="../../../repo/index.php?controller=Proveedor&action=login">Actualizar Precio</a>
+                    -->
                 </div>
             </li>
         </ul>

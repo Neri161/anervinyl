@@ -4,7 +4,7 @@ use Models\Tarjeta;
 
 class TarjetaController
 {
-
+    //verifica registro de tarjeta
     function verificarRegistro(){
         $tarjeta = new Tarjeta();
         $tarjeta->folio_Tarjeta=$_POST["folio_Tarjeta"];

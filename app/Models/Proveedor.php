@@ -14,12 +14,14 @@ class Proveedor extends Conexion
     {
         parent::__construct();
     }
+    //insertar proveedor
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO proveedor (nombre_Proveedor,correo,contrasenia,telefono) VALUES(?,?,?,?)");
         $pre->bind_param("ssss", $this->nombreProveedor, $this->correo, $this->contraseña, $this->telefono);
         $pre->execute();
     }
+    //obtener datos del proveedor
     static function vereficarProveedor($correo)
     {
         $conexion = new Conexion();
@@ -29,6 +31,7 @@ class Proveedor extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
+    //seleccionar todas las categorias
     static function Categoriaall()
     {
         $conexion = new Conexion();
@@ -40,6 +43,7 @@ class Proveedor extends Conexion
         }
         return $t;
     }
+    //seleccionar todos los artistas
     static function Artistaall()
     {
         $conexion = new Conexion();
@@ -51,6 +55,7 @@ class Proveedor extends Conexion
         }
         return $t;
     }
+    //seleccionar todos los tipos
     static function Tiposall()
     {
         $conexion = new Conexion();
@@ -62,6 +67,7 @@ class Proveedor extends Conexion
         }
         return $t;
     }
+    //seleccionar todos los productos
     static function Productosall($id)
     {
         $conexion = new Conexion();

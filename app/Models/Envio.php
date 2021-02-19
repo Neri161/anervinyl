@@ -14,7 +14,7 @@ class Envio extends Conexion
     {
         parent::__construct();
     }
-
+    //insertar envio
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO envio(id_UD,id_Producto,estatus) VALUES (?,?,?)");

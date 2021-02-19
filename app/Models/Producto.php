@@ -19,6 +19,7 @@ class Producto extends Conexion
     {
         parent::__construct();
     }
+    //insertar producto
     function crear()
     {
         $this -> fecha_registro = date("Y-m-d");
@@ -26,6 +27,7 @@ class Producto extends Conexion
         $pre->bind_param("ssssssssss", $this->nombre, $this->categoria, $this->tipo, $this->artista, $this->precio, $this->stock,$this->anio,$this->proveedor,$this->imagen,$this->tipoi);
         $pre->execute();
     }
+    //actualizar stock
     static function actualizarStock($id){
         $conexion = new  Conexion();
         $pre = mysqli_prepare($conexion->conexion, "UPDATE productos SET stock=stock-1 WHERE id=?");

@@ -6,9 +6,11 @@ class UsuarioController
     function __construct()
     {
     }
+    //muestra vista de registro
     function registro(){
         require "app/Views/usuario/registro.php";
     }
+    //verifica eñ registro de usuario
     function verificarRegistro(){
         $correo=&$_POST["correo"];
         $verificar = Usuario::verificarCorreo($correo);
@@ -31,18 +33,22 @@ class UsuarioController
             require "app/Views/usuario/registro.php";
         }
     }
+    //muestra vista de login
     function login(){
         require "app/Views/usuario/login.php";
     }
+    //muestra inicio y carga los datos de productos
     function dologin(){
         $productos=Usuario::Productosall();
        require 'app/Views/usuario/inicio.php';
     }
+    //cerrar sesion
     function logout(){
         session_start();
         session_destroy();
         header("location:../../../repo/index.php?controller=Usuario&action=login");
     }
+    //verifica datos del usuario para acceder a la sesion
     function verificarCredenciales(){
         if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
             echo "Datos incorrectos";
@@ -88,12 +94,15 @@ class UsuarioController
                 require "app/Views/usuario/login.php";
         }
     }
+    //muestra la vista de perfin
     function perfil(){
         require "app/Views/usuario/perfil.php";
     }
+    //muestra la vista de registro de tarjeta y direccion
     function registroDatos(){
         require "app/Views/usuario/DireccionTarjeta.php";
     }
+    //verifica el registro de tarjeta o direccion
     function verificarDT(){
         session_start();
         $verificarDirecciones=Usuario::verificarDireccion($_SESSION["idUsuario"]);
@@ -115,6 +124,7 @@ class UsuarioController
         }
         header("location:../../../repo/index.php?controller=Usuario&action=registroDatos");
     }
+    //actualizar foto de perfil
     function actualizarFoto(){
         $usuario = new Usuario();
 
@@ -130,6 +140,7 @@ class UsuarioController
         $_SESSION["tipo"]=$_FILES['image']['type'];
         header("location:../../../repo/index.php?controller=Usuario&action=perfil");
     }
+    //muestra la vista de carrito de compras
     function carrito(){
         $productos=Usuario::Productosall();
         $envio=Usuario::envioAll();

@@ -17,6 +17,7 @@ class Direcciones extends Conexion
     {
         parent::__construct();
     }
+    //insertar direcciones
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO direcciones (CP,calle,no_Interior,no_Exterior,telefono,referencia,id_Usuario) VALUES(?,?,?,?,?,?,?)");

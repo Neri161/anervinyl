@@ -10,6 +10,7 @@ class Categoria extends Conexion
     {
         parent::__construct();
     }
+    //insertar datos de categoria
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO categorias (nombre) VALUES(?)");

@@ -4,6 +4,7 @@ use Models\Producto;
 
 class ProductosController
 {
+    //verifica registro de productos
     function verificarRegistro(){
         $productos = new Producto();
         $proveedor=$_GET["Proveedor"];
@@ -24,6 +25,7 @@ class ProductosController
         $productos->crear();
         header("location:../../../repo/index.php?controller=Proveedor&action=registrarProducto&id=$proveedor");
     }
+    //actualiza el stock de un producto
     function stock(){
         $actualizar=Producto::actualizarStock($_GET["id"]);
         header("location:../../../repo/index.php?controller=Usuario&action=dologin");

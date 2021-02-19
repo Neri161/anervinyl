@@ -11,6 +11,7 @@ class Artista extends Conexion
     {
         parent::__construct();
     }
+    //insetar los artistas
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO artista (nombre_Artistico) VALUES(?)");

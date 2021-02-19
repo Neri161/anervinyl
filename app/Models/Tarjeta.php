@@ -15,6 +15,7 @@ class Tarjeta extends Conexion
     {
         parent::__construct();
     }
+    //insertar tarjetas
     function crear()
     {
         $pre = mysqli_prepare($this->conexion, "INSERT INTO tarjetas_credito (folio_tarjeta,fechVencimiento,noSeguridad,compania,id_Usuario) VALUES(?,?,?,?,?)");

@@ -8,11 +8,12 @@ class Admin extends Conexion
 {
     public $correo;
     public $contrasenia;
-    //hola
+
     function __construct()
     {
         parent::__construct();
     }
+    //verificar si existe el administrador
     static function vereficarAdmin($correo)
     {
         $conexion = new Conexion();
@@ -22,6 +23,7 @@ class Admin extends Conexion
         $resultado = $pre->get_result();
         return $resultado->fetch_object();
     }
+    //seleeciona todos los proveedores
     static function Proveedorall()
     {
         $conexion = new Conexion();
@@ -33,6 +35,7 @@ class Admin extends Conexion
         }
         return $t;
     }
+    //seleeciona todos las categorias
     static function Categoriaall()
     {
         $conexion = new Conexion();
@@ -44,6 +47,7 @@ class Admin extends Conexion
         }
         return $t;
     }
+    //seleeciona todos los artista
     static function Artistaall()
     {
         $conexion = new Conexion();

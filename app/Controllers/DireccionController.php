@@ -4,6 +4,7 @@ use Models\Direcciones;
 
 class DireccionController
 {
+    //verifica registro de direccion
     function verificarRegistro(){
         $direccion=new Direcciones();
         $direccion->CP=$_POST["CP"];

@@ -3,17 +3,21 @@ require 'app/Models/Proveedor.php';
 use Models\Proveedor;
 class ProveedorController
 {
+    //muestra vista de login
     function login(){
         require "app/Views/proveedor/login.php";
     }
+    //muestra la vista de inicio
     function dologin(){
         require "app/Views/proveedor/inicio.php";
     }
+    //cerrar sesion
     function logout(){
         session_start();
         session_destroy();
         header("location:../../../repo/index.php?controller=Proveedor&action=login");
     }
+    //verificar registro de proveedor
     function verificarRegistro(){
         $proveedor = new Proveedor();
         $proveedor->nombreProveedor=$_POST["nombre"];
@@ -23,6 +27,7 @@ class ProveedorController
         $proveedor->crear();
         header("location:../../../repo/index.php?controller=Admin&action=registroProveedor");
     }
+    //verifica datos para el acceso del proeedor
     function verificarCredenciales(){
         if ((!isset($_POST["correo"])) || !isset($_POST["contrasenia"])){
             $estatus="Datos incorectos";
@@ -47,6 +52,7 @@ class ProveedorController
             require "app/Views/proveedor/login.php";
         }
     }
+    //muestra vista de registro de productos
     function registrarProducto(){
         $tipos=Proveedor::Tiposall();
         $artista=Proveedor::Artistaall();

@@ -7,6 +7,7 @@ class CategoriaController
      public function __construct()
      {
      }
+     //verifica registro de categoria
     function verificarRegistro(){
         $categoria = new Categoria();
         $categoria->Nombre=$_POST["nombre"];

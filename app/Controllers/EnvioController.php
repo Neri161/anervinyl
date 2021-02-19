@@ -5,6 +5,7 @@ use Models\Envio;
 
 class EnvioController
 {
+    //verifica registro de direccion
     function comprar(){
         $compra = new Envio();
         $producto=$_POST["id"];
